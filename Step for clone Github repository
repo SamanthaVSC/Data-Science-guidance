@@ -97,3 +97,7 @@ git config --global user.email "samanthadesktop324@gmail.com"
 git push -u origin main
 user name: samanthagithub
 password: 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
+
+git branch  # Check Current Branch
+git branch -a  # List All Branches
+git checkout branch-name  # Switch to the Correct Branch
