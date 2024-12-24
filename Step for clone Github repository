@@ -101,3 +101,10 @@ password: github_pat_11BLCD6VI0Gt4Vr94B2v7z_McDYPZrMMBgovVy1ou93mpLJKUrbaK4ZtGwn
 git branch  # Check Current Branch
 git branch -a  # List All Branches
 git checkout branch-name  # Switch to the Correct Branch
+
+Summary
+cd /path/to/your/repo          # Navigate to your repository
+git status                     # Check the current status
+git add .                      # Stage all untracked files and folders
+git status                     # Verify that the changes are staged
+git commit -m "Added untracked folders and files"  # Commit the changes
