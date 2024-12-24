@@ -1,0 +1,4 @@
+nano ~/.bashrc
+scroll down until the bottom and add the command line down below:
+export PS1="\W \$"
+# Just close and open the a new terminal and it'll be done
