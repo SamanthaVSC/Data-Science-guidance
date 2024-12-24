@@ -1,0 +1,164 @@
+Interact with 'apt':
+sudo add-apt-repository ppa:<repository_name>/ppa
+sudo add-apt-repository "repository-url"                  Add a repository (for PPAs, you can still use the add-apt-repository command)
+sudo add-apt-repository ppa:some/ppa			  To add a PPA (Personal Package Archive)
+sudo apt update						  Update package lists
+sudo apt clean						  Clear the local repository of retrieved package files
+sudo apt upgrade					  Upgrade all installed packages to their latest versions
+sudo apt install <package_name>			          Install a package
+sudo apt install --no-install-recommends	<package_name>    Install the Nvidia driver without any recommended packages
+sudo apt install ./<package_name>			  Install a .deb package
+sudo apt install /Url-directory/			  Install a specific package from a 'url'
+sudo apt install <missing_dependecies>			  Installing Missing Dependencies
+sudo apt upgrade <package_name>				  Upgrade a specific package
+sudo apt dist-upgrade					  Comprehensive upgrade (handles dependencies intelligently)
+sudo apt full-upgrade					  (Optional) Comprehensive upgrade
+sudo apt --fix-broken install				  Fix broken packages
+sudo apt --fix-missing install				  Fix missing packages when trying to install or upgrade
+apt search <package-name>				  Search for a Package
+apt show <package-name>					  Show Package Information
+apt list --installed					  List installed packages
+sudo apt-mark showhold					  Check for Held Packages
+apt download <package-name>				  Download a Package Without Installing
+apt list -a <package-name>				  List Available Versions of packages
+apt depends <package-name>				  Show Package Dependencies
+apt rdepends <package-name>				  Show reverse dependencies
+sudo apt update && sudo apt upgrade -y			  Update your system and upgrade all packages
+sudo do-release-upgrade					  For major version upgrades (e.g., from Ubuntu 20.04 to 22.04)
+sudo apt install --reinstall <package-name>		  Reinstall a package
+sudo apt install --reinstall command-not-found		  Reinstall the command-not-found Package: Since the script is missing
+sudo apt install --allow-unauthenticated <package-name>	  This option is used to bypass the authentication checks that are normally performed by the package manager when installing packages
+
+Remove package using 'apt':
+sudo apt remove <package-name>				  Remove a package (keeping configuration files)
+sudo apt remove command-not-found			  Remove the command-not-found packages
+sudo add-apt-repository --remove ""repository-url""	  Remove a repository (this command is used to remove a PPA or other repository)
+
+sudo apt purge <package-name>				  Purge a package (removes the package along with its configuration files)
+sudo apt autoremove					  Remove unnecessary packages that were automatically installed to satisfy dependencies for other packages and are no longer needed
+sudo add-apt-repository --remove ppa:some/ppa		  Remove a PPA (Personal Package Archive)
+
+
+Interact with 'apt-get':
+sudo apt-get update					  Update package lists
+sudo apt-get clean				          Clear the local repository of retrieved package files
+sudo apt-get upgrate					  Upgrade all installed packages to their latest versions
+sudo apt-get install <package_name>			  Install a package
+sudo apt-get install --no-install-recommends <package_name>Install the Nvidia driver without any recommended packages
+sudo apt-get install ./<package_name>			  Install a .deb package
+sudo apt-get build-dep <package_name>			  Compiling software from source and when it's having a .deb package or a source package available
+sudo apt install /Url-directory/			  Install a specific package frm a url
+sudo apt-get upgrade <package_name>			  Upgrade a specific package
+sudo apt-get dist-upgrade				  Comprehensive upgrade (handles dependencies intelligently)
+sudo apt-get install -f					  Fix missing packages when trying to install or upgrade
+apt-cache search <package-name>				  Search for a Package
+apt-cache show <package-name>   			  Show package information
+sudo apt-mark showhold					  Check for Held Packages
+apt-get download <package-name>				  Download a Package Without Installing
+apt-cache policy <package-name>				  List available versions of a package
+apt-cache depends <package-name>			  Show package dependencies
+apt-cache rdepends <package-name>			  Show reverse dependencies
+sudo apt-get update && sudo apt-get upgrade -y		  Update your system and upgrade all packages
+sudo do-release-upgrade					  For major version upgrades (e.g., from Ubuntu 20.04 to 22.04)
+sudo apt-get install --reinstall <package-name>		  Reinstall a package
+sudo apt-get install --reinstall command-not-found	  Reinstall the command-not-found package
+sudo apt-get install --allow-unauthenticated <package-name>This option is used to bypass the authentication checks that are normally performed by the package manager when installing packages
+
+Remove package using 'apt-get'
+sudo apt-get remove <package-name>			  Remove a package (keeping configuration files)
+sudo apt-get remove command-not-found			  Remove the command-not-found packages
+sudo apt-get purge <package-name>			  Purge a package (removes the package along with its configuration files)
+sudo apt-get autoremove					  Remove unnecessary packages that were automatically installed to satisfy dependencies for other packages and are no longer needed
+
+
+Interact with 'dpkg':
+dpkg -l							  List all the packages that are currently installed on your system
+dpkg -l | grep <package-name>	    		  	  Verification whether a package is installed or not
+dpkg --list						  List all installed packages (alternative syntax)
+dpkg -s <package-name>					  List Packages with More Detail
+sudo dpkg --configure -a 				  Configure the package manager
+sudo dpkg -i <package-file.deb>				  Install a .deb package
+sudo dpkg -r <package-name>				  Remove an installed package
+sudo dpkg -P <package-name>				  Uninstalls the package but also deletes all associated configuration files.
+sudo dpkg --purge <package-name>			  Purge a package
+
+
+Installing Required Tools for compress file (.rar, .tar.gz, .rar.tgz, tar.bz2, .tar.xz, .7z):
+sudo apt install p7zip-full				 Install p7zip for handling .7z files and other formats
+7z x file.7z 						 Extract .7z files
+unzip file.zip						 Extract .zip files
+sudo apt install unrar					 Install unrar for handling .rar files
+unrar x file.rar					 Extract .rar files
+tar -xzf file.tar.type				         tar command to extract .tar.gz, .tgz, .tar.bz2, .tar.xz files
+tar -xzf file.tar.gz					 tar command to extract tar.gz
+tar -xjf file.tar.bz2				 	 tar command to extract tar.bz2
+tar -xJf file.tar.xz					 tar command to extract tar.xz
+
+Open terminal from Linux
+lsblk							 Seek the right partition
+sudo mkdir /mnt/sda4
+sudo mount /dev/sda4 /mnt/sda4
+lsb_release -a 						 Check ubuntu version
+which <package-name>					 Find an installed files using
+gnome-system-monitor					 Open System Monitor
+deb https://url//					 This line specifies a software repository from which the package manager (apt) can download and install software packages
+sudo apt install /Url-directory/			 This command will only work if the directory is empty.
+sudo kill <proccess_number>				 Kill a proccess
+sudo rm r- /local_directory/				 Remove a local file
+sudo rmdir /local_directory/				 Remove empty directories
+sudo rmdir [options] /local_directory/			 Remove empty directories
+ps aux | grep process_name				 Use the 'ps' command to check for running processes
+pgrep process_name					 The 'pgrep' command is a simpler way to check if a process is running
+chmod +x <package_name>					 For appimage (file executable, allowing you to run it as a program)
+./<package_name>					 Indicates that the file is located in the current directory	 
+apt-cache show <package_name>				 Check the dependencies of a package that is available in the repositories
+ldd ./<package_name>					 Get dependecies for AppImage or a binary when it's having an executable
+du -sh /local_directory/<file-or-folder_name>		 Check the size of a file or folder
+hostname -I						 hostname -I
+/sbin/ifconfig						 This command provides detailed information about all network interfaces
+dig +short myip.opendns.com @resolver1.opendns.com	 This command queries a DNS service to find your public IP
+ps aux | grep apt					 Identify the Process
+sudo kill <######>					 Terminate the Process (if necessary)
+sudo kill -9 <######>					 If the process does not terminate, you can use the -9 option to forcefully kill it
+
+Getting issue to open Folders:
+sudo apt-get purge nautilus
+sudo apt-get install nautilus                           Or to "use sudo apt installl nautilus"
+udo apt update
+sudo apt upgrade
+
+
+View the system logs from the previous boot in a Linux system that uses 'systemd'
+journalctl -b -1 					 Review system logs for any errors that occur during shutdown
+journalctl -b -1 -p err					 Look for errors
+journalctl -b -1 | grep -i "error"			 Look for specific issues
+journalctl -b -1 | grep -i "shutdown"			 Check for Shutdown Messages
+journalctl -f			 			 View Logs in Real-Time
+journalctl -b -1 | less					 Use less for Navigation: If the output is long, you can pipe it to less for easier navigation:
+journalctl -b -1 -u <service-name>			 Check for Specific Services: If you suspect a particular service is causing issues, you can filter logs for that service:
+journalctl -k -b -1					 Look for Kernel Messages: If you suspect hardware issues, you might want to check kernel messages:
+
+Local navegation by terminal:
+cd /local_directory/
+cd -							 Return to the previous directory
+cd ~							 Return to the home directory
+cd							 Return to the home directory 	
+cd ..							 Navigate up one directory level
+nautilus ~/local_directory/				 Open the current matched path
+ls							 List the files and folders
+ls -l							 Get more detailed information
+ls -a							 Show hidden files
+ls -la							 This will give you a comprehensive view of all files and directories, including hidden
+ones, along with their details.
+
+Avoid timeout on Ubuntu terminal
+bash:
+sudo apt -o Acquire::http::Timeout=3600 install <package_name>
+sudo nano /etc/apt/apt.conf.d/99timeout
+Acquire::http::Timeout "3600" # Set HTTP timeout to 3600 seconds
+
+sudo nano /etc/apt/apt.conf.d/99timeouts
+Acquire::http::Timeout "240";  # Set HTTP timeout to 240 seconds
+Acquire::https::Timeout "240"; # Set HTTPS timeout to 240 seconds
+Acquire::Retries "3";
+apt-config dump | grep Timeout
