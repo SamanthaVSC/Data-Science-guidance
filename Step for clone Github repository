@@ -90,5 +90,10 @@ git config --global user.email # Check Your Git Email
 
 # If you need to set or change your Git username or email
 bash:
-git config --global user.name "Your Name"
-git config --global user.email "your_email@example.com"
+git config --global user.name  · Check
+git config --global user.name "samanthagithub"
+git config --global user.email "samanthadesktop324@gmail.com"
+
+git push -u origin main
+user name: samanthagithub
+password: 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
