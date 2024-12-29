@@ -1,0 +1,43 @@
+[ OK ] Started polkit.service Authorization Manager.
+
+Starting ModemManager.service Modem Manager...
+
+[ OK ] Started power-profiles-daemon.service Power Profiles daemon.
+
+[OK] Started wpa_supplicant.service WPA supplicant.
+
+kauditd_printk_skb: 160 callbacks suppressed [ OK ] Started snapd.service Snap Daemon.
+
+Starting systemd-timedated.service Time & Date Service...
+
+[ OK] Finished e2scrub_reap.service - Re line ext4 Metadata Check Snapshots.
+
+[OK] Started systemd-timedated.service Time & Date Service. [ OK ] Started NetworkManager.service - Network Manager.
+
+[ OK ] Reached target network.target - Network.
+
+Starting NetworkManager-wait-onlin ce Network Manager Wait Online...
+
+Starting cups.service CUPS Scheduler...
+
+Starting openvpn.service OpenVPN service...
+
+Started snap.canonical-livepatch.c■cal-livepatch.canonical-livepatchd.
+
+Starting systemd-user-sessions.service Permit User Sessions...
+
+[ OK ]
+
+OK ] Started unattended-upgrades.service - Unattended Upgrades Shutdown.
+
+[ [OK] Finished openvpn.service OpenVPN service.
+
+[ OK ] Finished systemd-user-sessions.service Permit User Sessions.
+
+Starting gdm.service GNOME Display Manager...
+
+Starting plymouth-quit-wait.serviced until boot process finishes up... [OK] Finished snapd.seeded.service - Wait until snapd is fully seeded.
+
+[OK] Started gdm.service GNOME Display Manager.
+
+[ OK] Started cups.service CUPS Scheduler.
