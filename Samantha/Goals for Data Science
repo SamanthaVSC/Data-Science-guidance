@@ -14,6 +14,7 @@ https://docs.python.org/3.13/library/collections.html                    # Get d
 https://launchschool.com/                                                # A interesting siteweb for learn and exchange ideas (VPN is required)
 https://dokumen.pub/                                                     # Get free books for programming
 https://mml-book.github.io/                                              # Tutorial for mathematical and Statistical concepts for ML and IA
+https://www.deeplearningbook.org/                                        # Tutorial for mathematical and Statistical concepts for ML and IA
 https://elhacker.info/Cursos/Complete%20Ethical%20Hacking%20Bootcamp/
 https://elhacker.info/Cursos/Complete%202020%20Data%20Science%20and%20Machine%20Learning%20Bootcamp%20%5BUdemyLibrary.com%5D/
 
@@ -80,3 +81,79 @@ YouTube Channels:
     Machine Learning with Phil: Tutorials and explanations on ML and AI.
 
 Remember, while these resources are free, they still require dedication and effort to learn. Stay motivated, and you'll be well on your way to mastering ML and AI!
+
+
+There are many free resources available online to learn mathematical and statistical concepts for machine learning (ML) and artificial intelligence (AI). Here are some of the best ones:
+
+### 1. **Books**
+   - **"Mathematics for Machine Learning" by Marc Peter Deisenroth, A. Aldo Faisal, and Cheng Soon Ong**  
+     - Free PDF available: [Mathematics for Machine Learning](https://mml-book.github.io/)  
+     - Covers linear algebra, calculus, and probability, which are essential for ML.
+   - **"Deep Learning" by Ian Goodfellow, Yoshua Bengio, and Aaron Courville**  
+     - Free online version: [Deep Learning Book](https://www.deeplearningbook.org/)  
+     - Focuses on the mathematical foundations of deep learning.
+   - **"Elements of Statistical Learning" by Trevor Hastie, Robert Tibshirani, and Jerome Friedman**  
+     - Free PDF: [Elements of Statistical Learning](https://hastie.su.domains/Papers/ESLII.pdf)  
+     - A comprehensive guide to statistical methods used in ML.
+
+---
+
+### 2. **Online Courses**
+   - **Khan Academy**  
+     - Free courses on linear algebra, calculus, probability, and statistics: [Khan Academy](https://www.khanacademy.org/)  
+     - Great for beginners to build foundational knowledge.
+   - **MIT OpenCourseWare**  
+     - Free courses on mathematics and statistics: [MIT OCW](https://ocw.mit.edu/)  
+     - Look for courses like "Linear Algebra" and "Introduction to Probability and Statistics."
+   - **Coursera (Free Audits)**  
+     - "Mathematics for Machine Learning" by Imperial College London: [Coursera Link](https://www.coursera.org/specializations/mathematics-machine-learning)  
+     - "Introduction to Statistics" by Stanford University: [Coursera Link](https://www.coursera.org/learn/statistics)  
+     - You can audit these courses for free (without certificates).
+
+---
+
+### 3. **Interactive Platforms**
+   - **Brilliant.org**  
+     - Interactive lessons on probability, linear algebra, and calculus: [Brilliant](https://brilliant.org/)  
+     - Some free content is available, but premium access requires a subscription.
+   - **3Blue1Brown (YouTube)**  
+     - Excellent video series on linear algebra and calculus: [3Blue1Brown YouTube Channel](https://www.youtube.com/c/3blue1brown)  
+     - Visual explanations of complex mathematical concepts.
+
+---
+
+### 4. **Websites and Blogs**
+   - **Distill.pub**  
+     - Articles on ML concepts with visual explanations: [Distill](https://distill.pub/)  
+   - **Towards Data Science (Medium)**  
+     - Free articles on mathematical and statistical concepts for ML: [Towards Data Science](https://towardsdatascience.com/)  
+   - **StatQuest with Josh Starmer (YouTube)**  
+     - Simplifies statistical and ML concepts: [StatQuest YouTube Channel](https://www.youtube.com/c/joshstarmer)
+
+---
+
+### 5. **Cheat Sheets and Summaries**
+   - **ML Cheat Sheets**  
+     - Linear algebra, probability, and calculus cheat sheets: [ML Cheat Sheets](https://ml-cheatsheet.readthedocs.io/)  
+   - **Probability and Statistics Cheat Sheets**  
+     - Available on GitHub: [Probability Cheat Sheet](https://github.com/wzchen/probability_cheatsheet)
+
+---
+
+### 6. **Practice Problems**
+   - **Project Euler**  
+     - Mathematical problems to improve problem-solving skills: [Project Euler](https://projecteuler.net/)  
+   - **Kaggle Learn**  
+     - Free micro-courses on Python, statistics, and ML: [Kaggle Learn](https://www.kaggle.com/learn)
+
+---
+
+### 7. **University Lecture Notes**
+   - **Stanford CS229 (Machine Learning)**  
+     - Lecture notes on mathematical foundations: [CS229 Notes](https://cs229.stanford.edu/syllabus.html)  
+   - **Harvard Stat 110 (Probability)**  
+     - Lecture notes and videos: [Harvard Stat 110](https://projects.iq.harvard.edu/stat110/home)
+
+---
+
+By combining these resources, you can build a strong foundation in the mathematical and statistical concepts needed for ML and AI. Start with the basics (linear algebra, calculus, and probability) and gradually move to more advanced topics like optimization and statistical inference.
