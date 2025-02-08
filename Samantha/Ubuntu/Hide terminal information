@@ -1,4 +1,12 @@
-nano ~/.bashrc
-scroll down until the bottom and add the command line down below:
+# How to access to Linux Bash settings
+bash:
+subl ~/.bashrc
+
+# Hide terminal information
+subl ~/.bashrc
+scroll down until the bottom and add this command line:
 export PS1="\W \$"
-# Just close and open the a new terminal and it'll be done
+
+# To store the path in a variable for later use:
+current_path=$(pwd)
+echo "You are in: $current_path"
