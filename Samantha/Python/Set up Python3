@@ -1,0 +1,153 @@
+Python dependecies:
+
+# Set up Python
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa                              Wait and press Enter when it need
+sudo apt install python3.x                        			Install a specific python version
+python3 --version                                                       Check Python version
+sudo apt remove python3.x                             			Remove Python
+sudo apt install python3.x-distutils
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.x <number_version>  Set as default a python version
+update-alternatives --display python3				        Check Python Alternatives
+sudo update-alternatives --config python3			        Configure the Default Version
+python3 -c "import package-name";print('package-name'.__version__)"     Check any package version from a compiler
+sudo apt upgrade python3					        Upgrate python to the last version
+
+
+Using pip3 and pipx:
+sudo apt install python3-pip                          			Install pip3
+sudo apt-get install python3 python3-pip                                Install both (Python and pip3)
+python3.x get-pip.py                              			Run the Script with the Desired Python Version
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py           	Download the get-pip.py Script(Using 'curl')
+wget https://bootstrap.pypa.io/get-pip.py                 		Download the get-pip.py Script(Using 'wget')
+python3.x -m pip uninstall pip                				Uninstall pip from a specific python version
+python3.x -m pip --version                        			Check pip3 version
+pip --version                                 				Check pip3 version
+pip3 --version                                				Check pip3 version
+pip -V                                        				Check pip3 version
+alias pip=pip3                                				Create an alias
+pip3 install <package_name>						Install a module
+pip3 unistall <package_name>						Unistall a module
+pip3 list								Check current installed package	
+pip install jupyterlab <package_name>               		       Install any package on JupyterLab
+pip show <package_name>                                                Check any package version  
+sudo apt install pipx                             			Install pipx				      
+pip3 install --user pipx						
+pipx install <package_name>						Install a module
+pipx uninstall <package-name>						Unistall a moduleS
+pipx list							        Check current installed package	
+					      
+Get VSCode extension:
+code --list-extensions					 	       List the installed extensions
+code --list-extensions > installed_extensions.txt		       Save the Output to a Text File
+cat installed_extensions.txt				 	       Verify the Output
+
+Most common packages for mathematicians, data scientists and data analysts using pip:
+matplotlib, numpy, pandas, scipy, statsmodels 	 		       Install those package using pip('statsmodels' require 'pandas' already installed)
+tensorflow(keras), scikit-learn    			               Install Frameworks and proper libraries for Deep Learning:
+
+To active a python environment by terminal
+sudo apt install python3.x python3.x-venv python3.x-dev		       python3.x -venv: This package is necessary for creating virtual environments.
+python3.x-dev: This package includes the header files and a static library for Python development
+sudo apt install python3-venv					       Install victual environment for Python	
+cd /address
+python3.x -m venv /environment_direction/			       Create the Virtual Environment
+source /environment_direction/bin/activate			       Activate the Virtual Environment(source /home/samantha/Documents/Programming/Python/myenv/bin/activate)					       
+which python
+python -c "import sys; print(sys.executable)"
+conda deactivate						       Deactivate the virtual environment when done
+
+!!!!To install pytouch on ubuntu
+1-Go to the website 'cuda tookit' and install the appropriate cuda version for you NVIDIA GRAFIC CARD
+2- Go to 'NVIDIA cuDNN' page and and search for cuDNN is a GPU-accelerated library for deep neural networks (Make sure that matches with the current cuda version already installed)
+3- pip install torch==version torchvision==0.version.1 torchaudio==version --index-url https://download.pytorch.org/whl/cu124 (Check the last versions of 'torch', 'torchvision ' and 'torchaudio ' on https://pypi.org/)
+
+sudo ubuntu-drivers install					       It's a tool to automatically detect and install the recommended driver
+sudo apt --purge remove '*nvidia*'				       Remove Nvidia packages and theirs dependecies
+
+# Install the CPU version of PyTorch
+pip install torch torchvision torchaudio                               
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu Install the CPU version of PyTorch
+
+Install cuda toolkit from the official website			       (You can use 'wget' or 'wget -qO-'if you use the 'dev package')
+sudo apt install nvidia-cuda-toolkit				       To install nvidia-cuda-toolkit
+sudo apt install nvidia-cuda-toolkit=<version>			       Install a specific version of CUDA (e.g. sudo apt install nvidia-cuda-toolkit=11.2.0-1)
+nvcc --version						               To check cuda toolkit version 
+Navigate to the CUDA installation directory (typically /usr/local/cuda/): 'cd /usr/local/cuda/' check the version.txt file: 'cat version.txt to check cuda toolkit version
+nvidia-smi 						               To check GPU and the CUDA version
+dpkg -l | grep cuda					               This will list all installed CUDA packages along with their versions.
+Install cudnn-local-repo-ubuntu<version>amd64
+dpkg -l | grep libcudnn					 	       This will list all installed cudnn packages along with	
+pip3 install torch torchvision torchaudio			       To install the version with CUDA support, the command might look something like this (ensure you have the correct version of CUDA installed):
+
+To run python code by terminal (Using other method might bring issues. It requires a python environment activated)
+~$ python3 # To run  Python code on terminal
+>>>print("Hello, World!")  # It will "output Hello, World!"
+Press "Ctrl + D or exit()"  # To exit from Python code mode on terminal
+~$ python3 filename.py # To run  Python files on terminal
+
+timeout undefined when it's installing a package using pip
+pip install --timeout 0 <package_name>
+pip install --no-timeout <package_name>  #### Alternatively
+
+Using pip freeze: The most common way to create a requirements.txt file is to use the pip freeze command. This command lists all the installed package
+bash:
+pip freeze > requirements.txt
+pip install -r requirements.txt
+pip install --upgrade -r requirements.txt				To upgrading Packages
+code --list-extensions
+code --list-extensions > extensions.txt
+pwd									Print the current working directory
+ls									List all files in the current directory
+cd /path/to/your/directory
+find ~ -name "extensions.txt"
+find ~ -name "requirements.txt"
+
+
+'''
+Specifying Versions: You can specify exact versions, version ranges, or allow for the latest versions in your requirements.txt file:
+    Exact Version: package_name==x.x.x
+    Minimum Version: package_name>=x.x.x
+    Version Range: package_name>=x.x.x,<x.x.x
+Change the 
+Comments: You can add comments in the requirements.txt file using the # symbol:
+plaintext:
+
+# Data analysis libraries
+pandas==1.3.0
+numpy>=1.21.0
+
+# HTTP library
+requests==2.25.1
+'''
+
+Set up conda:
+install it from terminal or an offline package
+cd ~\directory\						Look for the path where the offline package is
+chmod +x Anaconda3-2024.02-1-Linux-x86_64.sh		Make the Installer Executable
+./Anaconda3-2024.02-1-Linux-x86_64.sh			Run the Installer
+conda update conda
+conda --version
+conda                               Get conda command
+source ~/.bashrc			 		Activate the base environment of anaconda
+conda create --name myenv python=3.10
+conda activate						Use the base Anaconda, environment conda environment by default located at '/home/samatha/anaconda3/envs'
+conda activate myenv					Activate a specific environment
+anaconda-navigator					Open Anacoda
+conda install pip
+conda install <package_name>
+conda remove <package_name>
+pip install <package_name>				Make sure you are in the correct environment before using pip
+conda deactivate
+conda config --set auto_activate_base false	        deactivate default conda environment
+
+Keep a specific environment activate for conda:
+conda config --show					Show configurations
+subl ~/.bashrc						Open your .bashrc file in a text editor
+conda activate condaenv		 			Add the following line at the end of the file
+source ~/.bashrc					Apply the changes, either restart your terminal or run
+conda info --envs
+
+subl ~/.zshrc						Another way using .zshrc
+conda activate <env_name>	 			Add the following line at the end of the file
+source ~/.zshrc
