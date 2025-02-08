@@ -131,10 +131,18 @@ cd ..							    Navigate up one directory level
 nautilus ~/local_directory/				    Open the current matched path
 ls /directory/file.type		                            Check if a file exits
 ls /directory/  			                    Check if a directory exits
-ls							    List the files and folders
+ls							    	List the files and folders
 ls -l							    Get more detailed information
-ls -a							   Show hidden files
-ls -la							   This will give you a comprehensive view of all files and directories, including hidden ones, along with their details.
+ls -r 								To list the contents of a directory in reverse order
+ls -l 								Long listing format. Shows detailed information including permissions, number of links, owner, group, size, and modification date.
+ls -R 								Recursively lists subdirectories and their contents
+ls -t 								Sorts files by modification time, newest first.
+ls -S								Sorts files by size, largest first.
+ls -h 								Human-readable file sizes (e.g., 1K, 234M, 2G) when used with -l
+ls -d								Lists directories themselves, not their contents (useful with -l to see directory details).
+ls -1 								Lists one file per line
+ls -a							    Show hidden files
+ls -la							    This will give you a comprehensive view of all files and directories, including hidden ones, along with their details.
 
 # Getting issue to open Folders:
 bash:
@@ -209,5 +217,5 @@ Alt+F2 and type in it: update-manager -c		    Open Update Manager
 subl ~/.bashrc						    Open your .bashrc file in a text editor
 source ~/.bashrc					    Apply the changes, either restart your terminal or run
 find ~ -name <filename.type>			 	    Find a file
-alias
-unalias
+alias command1=command2
+unalias command1
