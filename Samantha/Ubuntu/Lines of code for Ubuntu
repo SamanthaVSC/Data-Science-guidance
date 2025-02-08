@@ -120,6 +120,7 @@ du -sh /local_directory/<file-or-folder_name>		    Check the size of a file or f
 
 # Local navegation by terminal:
 bash:
+pwd							   Get your current path were you are working in
 cd /local_directory/				            Access to specific path
 cd -							    Return to the previous directory
 cd ~							    Return to the home directory
