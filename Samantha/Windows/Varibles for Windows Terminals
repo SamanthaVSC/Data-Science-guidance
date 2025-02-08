@@ -1,0 +1,41 @@
+# Store the Path in a Variable for CMD:
+1 - Create a Batch File using notepad or any text editor you have and type the codes down below
+set current_path=%cd%
+echo You are in: %current_path%
+
+# To continuously display the current path when navigating directories
+@echo off
+:start
+cls
+echo You are in: %cd%
+echo.
+echo Type 'exit' to quit or 'cd <directory>' to change directories.
+set /p cmd="> "
+if "%cmd%"=="exit" exit
+if "%cmd:~0,3%"=="cd " (
+    cd %cmd:~3%
+) else (
+    echo Invalid command.
+)
+goto start
+
+2 - Save the file as navigate.bat
+3 - Run the Batch File. Open CMD and navigate to the directory where you saved navigate.bat and run the batch file by typing 'navigate.bat' on cmd
+
+
+# Store the Path in a Variable for pwsh:
+$current_path = (Get-Location).Path
+echo "You are in: $current_path"
+
+# To continuously display the current path when navigating directories
+1 - Open PowerShell.
+2 - Edit Your Profile accessing to the you profile typing on pwsh: notepad $PROFILE
+
+function prompt {
+    $currentPath = Get-Location
+    "$currentPath> "
+}
+
+
+3 - Save and Close the File.
+4 - Reload Your Profile typing on pwsh: . $PROFILE
