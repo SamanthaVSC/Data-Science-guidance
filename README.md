@@ -1,2 +1,2 @@
-# Linux-repositories-for-data-science
+# Data science guidance
 A solid and strong repository for data scientist.
