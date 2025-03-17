@@ -6,7 +6,7 @@ sudo add-apt-repository ppa:some/ppa			    To add a PPA (Personal Package Archiv
 sudo apt update						    Update package lists
 sudo apt clean						    Clear the local repository of retrieved package files
 sudo apt upgrade					    Upgrade all installed packages to their latest versions
-sudo apt install <package_name>			            Install a package
+sudo apt install <package_name>			            Install a deb package
 sudo apt install --no-install-recommends <package_name>     Install the Nvidia driver without any recommended packages
 sudo apt install ./<package_name>			    Install a .deb package
 sudo apt install /Url-directory/			    Install a specific package from a 'url'.This command will only work if the directory is empty.
@@ -111,8 +111,8 @@ mv							    To move
 cp							    To copy files
 mkdir <foder_name>			                    Create a folder in the current directory the terminal is at
 mv [old_name] [new_name]	                            Rename files or folders: Navigate to the Directory e.g. (mv oldfile.txt newfile.txt) or (mv oldfolder newfolder)
-mv filename.type .filename.type				        Hide files
-mv foldername .foldername 							Hide folders
+mv filename.type .filename.type				        Hide files, unhide will be: mv .hiddenfile.txt hiddenfile.txt
+mv foldername .foldername 							Hide folders, unhide will be: mv .hiddenfolder hiddenfolder
 dpkg -l | grep <package_name>				    Get directories of an installed package
 which <package-name>					    Find an installed files using
 deb https://url//					    This line specifies a software repository from which the package manager (apt) can download and install software packages
@@ -127,12 +127,14 @@ cd ~							    Return to the home directory
 cd							    Return to the home directory 	
 cd ..							    Navigate up one directory level
 
-# 
+xdg-open .								Open the Current Directory
 nautilus ~/local_directory/				    Open the current matched path
+nautilus .									Open the Current Directory
 ls /directory/file.type		                            Check if a file exits
 ls /directory/  			                    Check if a directory exits
 ls							    	List the files and folders
 ls -l							    Get more detailed information
+ls -l /directory/file.type			Check the owner and the permissions of the file
 ls -r 								To list the contents of a directory in reverse order
 ls -l 								Long listing format. Shows detailed information including permissions, number of links, owner, group, size, and modification date.
 ls -R 								Recursively lists subdirectories and their contents
@@ -143,6 +145,7 @@ ls -d								Lists directories themselves, not their contents (useful with -l to
 ls -1 								Lists one file per line
 ls -a							    Show hidden files
 ls -la							    This will give you a comprehensive view of all files and directories, including hidden ones, along with their details.
+ls -ld .							Check Directory Permissions
 
 # Getting issue to open Folders:
 bash:
@@ -169,6 +172,7 @@ dig +short myip.opendns.com @resolver1.opendns.com	    This command queries a DN
 # Interact with 'proccess'
 gnome-system-monitor					    Open System Monitor
 htop							    sudo apt install htop
+btop								sudo apt install btop
 ps aux | grep apt					    Identify the Process
 ps aux | grep <process_name>				    Use the 'ps' command to check for running processes
 pgrep <process_name>					    The 'pgrep' command is a simpler way to check if a process is running
@@ -197,11 +201,33 @@ journalctl -b -1 | less					    Use less for Navigation: If the output is long, 
 journalctl -b -1 -u <service-name>			    Check for Specific Services: If you suspect a particular service is causing issues, you can filter logs for that service:
 journalctl -k -b -1					    Look for Kernel Messages: If you suspect hardware issues, you might want to check kernel messages:
 
+# Interact with the 'System'
+lsb_release -a 						    Check ubuntu version
+cat /etc/*lsb_release						To check Linux distribution
+"/etc/apt/sources.list.d" 	                            Remove file from it if you get issues with repositories and dependencies of any programs
+Alt+F2 and type in it: update-manager -c		    Open Update Manager
+subl ~/.bashrc						    Open your .bashrc file in a text editor
+source ~/.bashrc					    Apply the changes, either restart your terminal or run
+find ~ -name <filename.type>			 	    Find a file
+alias
+unalias
+fzf									searcher for terminal
+ripgrep								searcher for terminal
+tldr								to learn to use terminal commands
+sudo chown username:username /directory/file.type		 Change File Ownership
+chmod 644 /directory/file.type		Change File Permissions
+
 # Avoid timeout on Ubuntu terminal
 bash:
 sudo apt -o Acquire::http::Timeout=3600 install <package_name>
 sudo nano /etc/apt/apt.conf.d/99timeout
 Acquire::http::Timeout "3600" # Set HTTP timeout to 3600 seconds
+
+curl -m 30 http://example.com
+curl --connect-timeout 10 http://example.com
+curl --buffer-size 1000000 http://example.com
+curl -H "Connection: keep-alive" http://example.com
+
 # Or also:
 bash:
 sudo nano /etc/apt/apt.conf.d/99timeouts
@@ -210,12 +236,10 @@ Acquire::https::Timeout "240"; # Set HTTPS timeout to 240 seconds
 Acquire::Retries "3";
 apt-config dump | grep Timeout
 
-# Interact with the 'System'
-lsb_release -a 						    Check ubuntu version
-"/etc/apt/sources.list.d" 	                            Remove file from it if you get issues with repositories and dependencies of any programs
-Alt+F2 and type in it: update-manager -c		    Open Update Manager
-subl ~/.bashrc						    Open your .bashrc file in a text editor
-source ~/.bashrc					    Apply the changes, either restart your terminal or run
-find ~ -name <filename.type>			 	    Find a file
-alias command1=command2
-unalias command1
+To avoid timeouts in a Linux Mint Bash session
+echo $TMOUT # Check Current TMOUT Value
+export TMOUT=0 # Disable TMOUT
+unset TMOUT # # Or otherwise
+echo 'export TMOUT=0' >> ~/.bashrc # Make the Change Permanent
+source ~/.bashrc # Reload the configuration file
+sudo nano /etc/profile # Check System-Wide Settings (Some systems may have timeout settings in '/etc/profile' or '/etc/bash.bashrc')

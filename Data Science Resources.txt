@@ -1,0 +1,39 @@
+Courses:
+https://brilliant.org/                                                   # Couse of math, programming, Data Science and so on
+https://medium.com/                                                      # Get the lastest news about programming
+https://realpython.com/                                                  # About collection types
+https://www.geeksforgeeks.org/                                           # A widely siteweb for Data Science, ML, AI and so on
+https://www.tutorialspoint.com/                                          # A programming tutorial space
+https://www.w3schools.com/                                               # A programming tutorial space
+https://www.stratascratch.com/                                           # Master coding for Data Science
+https://docs.python.org/3.13/library/collections.html                    # Get deeply on collection types
+https://launchschool.com/                                                # A interesting siteweb for learn and exchange ideas (VPN is required)
+https://dokumen.pub/                                                     # Get free books for programming
+https://mml-book.github.io/                                              # Tutorial for mathematical and Statistical concepts for ML and IA
+https://www.deeplearningbook.org/                                        # Tutorial for mathematical and Statistical concepts for ML and IA
+
+Tutorials and Guides:
+Coursera
+Kaggle
+TensorFlow Tutorials
+PyTorch Tutorials
+Machine Learning Mastery
+
+Blogs and Communities:
+KDNuggets
+Machine Learning Subreddit
+AI Alignment Forum
+
+Books
+Python Machine Learning: A free online book on ML with Python.
+Deep Learning: A free online book on deep learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
+
+Github repositories:
+https://github.com/Moataz-Elmesmary/Data-Science-Roadmap/tree/main/      # Several book for Data Science, ML, AI and so on
+https://github.com/noahabe/database_system_concepts_answers              # Solution of "Database System Concepts"
+
+
+YouTube Channels:
+3Blue1Brown: Animated explanations of ML and AI concepts.
+Sentdex: Tutorials and explanations on ML and AI.
+Machine Learning with Phil: Tutorials and explanations on ML and AI.

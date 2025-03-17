@@ -1,59 +1,88 @@
 tmux (Terminal Multiplexer) is a powerful terminal application that allows users to manage multiple terminal sessions from a single window. It is particularly useful for users who work in a command-line environment, as it enables them to split their terminal into multiple panes, detach and reattach sessions, and keep processes running even when they disconnect from the terminal.
-Key Features of tmux:
 
-    Multiple Sessions: You can create multiple terminal sessions within a single window, allowing you to run different tasks simultaneously.
+Installation on Ubuntu:
 
-    Panes and Windows: You can split your terminal into multiple panes (horizontal or vertical) and switch between them easily. Each pane can run a different command or application.
-
-    Session Management: You can detach from a session and leave it running in the background. Later, you can reattach to the session, which is particularly useful for long-running processes.
-
-    Persistent Sessions: If you lose your connection (e.g., SSH session), your tmux sessions remain active, allowing you to reconnect without losing your work.
-
-    Customizable: tmux is highly configurable, allowing users to customize key bindings, colors, and other settings to suit their workflow.
-
-    Scripting and Automation: You can script tmux commands to automate your workflow, making it easier to set up your environment.
+sudo apt update
+sudo apt install tmux
 
 Basic Commands:
 
-    Start a new session:
-
-    bash
-
+Start a new session:
 tmux
 
 Detach from a session: Press Ctrl + b, then d.
 
 List sessions:
-
-bash
-
 tmux ls
 
-Attach to a session:
+tmux uses a prefix key to trigger commands. By default, the prefix key is Ctrl + b. After pressing the prefix key, you can enter a command.
+Common Commands
 
-bash
+| Command | Description | |-----------------------------|--------------------------------------------------| | Ctrl + b then c | Create a new window. | | Ctrl + b then n | Switch to the next window. | | Ctrl + b then p | Switch to the previous window. | | Ctrl + b then 0-9 | Switch to a specific window by number. | | Ctrl + b then d | Detach from the current session. | | Ctrl + b then " | Split the current pane horizontally. | | Ctrl + b then % | Split the current pane vertically. | | Ctrl + b then arrow key | Move between panes. | | Ctrl + b then x | Close the current pane. | | Ctrl + b then & | Close the current window. | | Ctrl + b then ? | View all keybindings (help). |
+4. Detach and Reattach Sessions
 
-    tmux attach-session -t <session-name>
 
-    Create a new window: Press Ctrl + b, then c.
+In tmux, panels (also known as panes) can be resized, moved, and rearranged using various keybindings. Below are some common commands to manage panels in tmux:
 
-    Switch between panes: Press Ctrl + b, then use arrow keys.
+Splitting Panes
+    Split vertically: Ctrl-b %
+    Split horizontally: Ctrl-b "
 
-    Split pane horizontally: Press Ctrl + b, then %.
+Navigating Between Panes
+    Move to the next pane: Ctrl-b o
+    Move to a specific pane: Ctrl-b q followed by the pane number (e.g., 1, 2, etc.)
+    Move to the pane above: Ctrl-b Up Arrow
+    Move to the pane below: Ctrl-b Down Arrow
+    Move to the pane on the left: Ctrl-b Left Arrow
+    Move to the pane on the right: Ctrl-b Right Arrow
 
-    Split pane vertically: Press Ctrl + b, then ".
+Resizing Panes
+    Resize pane to the left: Ctrl-b Ctrl-Left Arrow
+    Resize pane to the right: Ctrl-b Ctrl-Right Arrow
+    Resize pane up: Ctrl-b Ctrl-Up Arrow
+    Resize pane down: Ctrl-b Ctrl-Down Arrow
 
-Installation on Ubuntu:
+Swapping Panes
+    Swap with the previous pane: Ctrl-b {
+    Swap with the next pane: Ctrl-b }
 
-To install tmux on Ubuntu, you can use the following command:
+Closing Panes
+    Close the current pane: Ctrl-b x (then confirm with y)
 
-bash
+Changing Layouts
+    Cycle through layouts: Ctrl-b Space
+    Select a specific layout:
+        Even-horizontal: Ctrl-b M-1
+        Even-vertical: Ctrl-b M-2
+        Main-horizontal: Ctrl-b M-3
+        Main-vertical: Ctrl-b M-4
+        Tiled: Ctrl-b M-5
 
-sudo apt update
+Moving Panes to a New Window
+    Move the current pane to a new window: Ctrl-b !
 
-sudo apt install tmux
+Breaking a Pane into a New Window
+    Break the current pane into a new window: Ctrl-b :break-pane
 
-Once installed, you can start using tmux by simply typing tmux in your terminal.
-Conclusion:
+Joining Panes
+    Join the current pane with another pane: Ctrl-b :join-pane -t <target-pane>
 
-tmux is an essential tool for anyone who spends a lot of time in the terminal, especially for developers, system administrators, and anyone who needs to manage multiple tasks efficiently. Its ability to keep sessions alive and organized makes it a favorite among power users.
+Rotating Panes
+    Rotate panes clockwise: Ctrl-b Ctrl-o
+    Rotate panes counterclockwise: Ctrl-b M-o
+
+Customizing Keybindings
+    You can customize keybindings in your ~/.tmux.conf file
+
+Switching Panes with Mouse
+    set -g mouse on
+
+Renumbering Panes
+    Renumber panes: Ctrl-b :move-pane -t <new-index>
+
+Maximizing and Restoring Panes
+    Maximize the current pane: Ctrl-b z
+    Restore the pane to its original size: Ctrl-b z again
+
+Swapping Panes with a Specific Pane
+    Swap the current pane with a specific pane: Ctrl-b :swap-pane -s <source-pane> -t <target-pane>
