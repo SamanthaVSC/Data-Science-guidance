@@ -1,0 +1,326 @@
+Git and GitHub Guide
+
+Introduction to Git
+
+    Git is a version control system that helps you keep track of code changes and collaborate on code with others.
+
+What is a Branch?
+
+    A branch in Git is essentially a pointer to a specific commit in your repository. It allows you to diverge from the main line of development (usually the main or master branch) and work on new features, bug fixes, or experiments without affecting the main codebase.
+
+Why Use Branches?
+
+    Isolation: Changes made in a branch do not affect other branches until you merge them.
+    Collaboration: Multiple developers can work on different branches simultaneously without interfering with each other’s work.
+    Experimentation: You can try out new ideas in a branch and discard them if they don’t work out.
+
+Branching Strategy
+
+Common strategies include:
+
+    Feature Branching: Create a new branch for each new feature.
+    Release Branching: Create branches for preparing releases.
+    Hotfix Branching: Create branches for urgent fixes.
+
+
+Useful Resources
+
+Git Tutorial 6: Branches (Create, Merge, Delete a branch) at: https://www.youtube.com/watch?v=sgzkY5vFKQQ&t=103s
+Git & GitHub Tutorial for Beginners #8 - Branches at: https://www.youtube.com/watch?v=QV0kVNvkMxc
+What are Git branches? | A lecture for beginners at: https://www.youtube.com/watch?v=ThpSIYuYfZ8
+GitLens Tutorial; how to Use GitLens extesion in VS Code at: https://www.youtube.com/watch?v=UQPb73Zz9qk
+
+
+
+Main branch (stable/production)
+│
+├── Experimental branch (doesn't affect main code)
+│   │
+│   └── Feature/bugfix commits (b)
+│
+└── Regular development commits (B)
+    │
+    └── Merge back to main (MB)
+
+Key points about GitHub branching:
+
+    The main branch (formerly called master) is typically your stable/production branch
+    Experimental branches are usually called feature branches or topic branches
+    Branches diverge from main and eventually merge back (MB) via pull requests
+    Experimental work doesn't affect main until it's explicitly merged
+
+
+A more conventional way to represent this would be:
+
+main --------------------------------------○-----○ (stable releases)
+ \                      /               /
+  \      experimental--○---○ (feature work)
+   \                /
+    ○--○--○ (regular development)
+
+    
+Local and Remote Branches
+Local Branches
+
+    Local branches (e.g., main and experimental) exist on your development machine.
+    B and b represent the local versions of these branches.
+
+Remote Branches
+
+    Remote branches correspond to branches on the remote repository (e.g., GitHub).
+    When you push your local branches to the remote repository, they become origin/main and origin/experimental, where origin is the default name for the remote repository.
+
+
+GitHub/Git branching visual representation based on your structure, 
+
+Local Repository                          Remote (GitHub)
+-----------------                        -----------------
+main (B) --------------------------> origin/main
+    |                                     ↑
+    | (git push)                          | (git pull/Merge PR)
+    |                                     |
+experimental (b) -------------------> origin/experimental
+    ↑                                     ↑
+    | (git merge --no-ff)                 | (Pull Request)
+    |                                     |
+    └───[Feature Work]────────────────────┘
+
+Key Improvements:
+
+    Directionality
+
+        Arrows (→) show sync direction (git push/git pull).
+        origin/main is the remote counterpart of local main.
+
+    Merge Workflow
+
+        experimental (b) should merge into main (B) via:
+            Locally: git checkout main && git merge experimental
+            On GitHub: Pull Request (PR) from experimental → main.
+
+    Branch Protection
+        On GitHub, main is often protected (no direct pushes; PRs required).
+
+    Avoid Confusing Notation
+
+        'Bb' Merge is unclear—use standard terms like PR/Merge Commit.
+
+Alternative Visual (Timeline-Based)
+
+main:           ○────────○─────────────○ (Merge PR)──────○
+                ︎|        ︎ \           /                 
+experimental:    \          ○──○──○ (Commits)             
+                  ↑          (b)                          
+               Branch                                     
+               Creation                                  
+
+GitHub-Specific Notes:
+
+    Pull Requests (PRs) are GitHub’s way to merge branches (equivalent to GitLab’s MRs).
+    origin/experimental exists only if you explicitly git push --set-upstream origin experimental.
+
+## Main Branch
+- **Definition**: The main branch (In 2020, GitHub announced that it would change the default branch name for new repositories from "master" to "main.") is typically the default branch in a repository. It represents the stable, production-ready state of the code.
+- **Purpose**: This branch is where the final, tested, and approved code resides. It is the version of the project that is deployed or released to users.
+
+## Experimental Branch
+- **Definition**: An experimental branch is created for testing new ideas, features, or changes that are not yet ready for production.
+- **Purpose**: This branch allows developers to explore new concepts, try out different implementations, or work on features that may not be fully defined. It is a space for innovation and experimentation without affecting the stable codebase.
+
+# Install Git
+# To install Git, run the following commands:
+sudo apt update
+sudo apt install git
+git --version
+
+# Create a Repository Locally
+# To create a new Git repository locally:
+mkdir my-repo # Create a New Directory
+cd my-repo
+git init # Initialize the Repository
+
+# If it’s not installed, you can download it from 'git-scm.com'.
+Create a repository locally at: https://www.youtube.com/watch?v=vbQ2bYHxxEA
+
+Clone a Remote Repository to Your Local Machine
+cd path/to/your/directory # Navigate to the Desired Directory
+git clone https://github.com/username/repository.git # Or SSH: git clone git@github.com:username/repository.git 
+
+# Remove Files or Folders from the Repository
+git rm --cached path/to/your/file
+git rm -r --cached path/to/your/folder
+git commit -m "Remove files/folders from remote repository but keep them locally"
+git push origin branch-name
+
+# (Optional) Add to .gitignore
+cd path/to/your/file
+cd path/to/your/folder/
+echo "path/to/excluded/file" >> .gitignore
+git add .gitignore
+git commit -m "Update .gitignore to exclude certain files/folders"
+git push origin branch-name
+
+# Clone a local repository to a remote one" instead of
+mkdir my-repo # Create a New Directory
+cd my-repo
+git init # Initialize the Repository
+git checkout -b new-branch-name # Create and Switch in One Command
+echo "# My Repository" > README.md # Create a README file
+git add README.md # Add the README file to the staging area
+git commit -m "Initial commit on new-branch-name" # Commit the changes
+git remote add origin https://github.com/username/my-repo.git # Add to a Remote Repository
+git push -u origin new-branch-name # Push Your Branch to the Remote Repository
+
+# Summary
+#    Create a directory and navigate into it.
+#    Initialize a Git repository with git init.
+#    Create and switch to a new branch with git checkout -b my-branch.
+#    Add files and commit your changes.
+#    (Optional) Add a remote repository and push your branch.
+#    Update the Remote URL
+#    git push origin my-branch (Give your user_name and password)
+# Now you have a local Git repository with a specified branch!
+
+# **** If you initialize the repository with a README file or other files, those will be committed to the main branch by default. You can always create new branches later as needed for development or feature work
+
+# Work with github branches:
+git status # Check for changes/Staging status/Untracked files/Branch information
+save temporarily your uncommitted changes (both staged and unstaged) so you can switch branches or perform other tasks without committing those changes.
+    git stash # Stash changes
+    git stash list # List stashes
+    git stash apply # Apply a stash
+    git stash pop # Pop a stash
+    git stash drop  # Drop a stash
+    Clear all stashes # git stash clear
+
+git branch # List branch
+git branch  # This will display all local branches
+git branch -r # To see all remote branches
+git branch -a # To view both local and remote branches
+git remote -v # You can list the remote repositories configured for your local clone
+git branch -vv # For a more detailed output, including commit IDs and messages
+git branch <new-branch-name> # Create a New Branch
+git checkout <new-branch-name> # Switch to another Branch
+git checkout -b <new-branch-name> # Create and Switch in One Command
+git switch # Switch to another Branch
+git push -u origin <branch-name> # The -u flag sets the upstream tracking reference, which makes future pushes easier (you can just use git push without specifying the branch).
+
+# Delete branches
+git push origin --delete <old-branch-name>  # Delete the old branch from the remote
+git branch -d <new-branch-name> # Delete a Branch (Deletes a local branch)
+git branch -D <new-branch-name> # Forcefully delete a branch regardless of its merge status
+git pull/push --set-upstream origin <branch-name> # After running the command above, you can simply use 'git push' or 'git pull'
+
+# Rename branches
+git fetch origin <branch-name> # To update the remote repository to the local one before to rename a branch
+git branch -m <new-branch-name> # Rename the Current Branch
+git branch -M <branch-name> # Force to rename the Current Branch
+git branch -m <old-branch-name> <new-branch-name> # To rename a branch that you are not currently on
+git push origin <branch-name> # Push the Renamed Branch to GitHub
+git push -u origin <new-branch-name> #Push the Renamed Branch to the Remote: After renaming the branch
+git push origin --delete <old-branch-name> # Delete the Old Branch from the Remote
+git push -u origin <branch-name> # Set Upstream for the New Branch
+git log # View Commit History
+git log --oneline # View a Simplified Commit History
+
+# Example Workflow:
+git fetch origin                            # Fetch the latest changes
+git branch -m <new-branch-name>             # Rename the current branch
+git branch -M <new-branch-name>             # Force rename the current branch
+git branch -m old-branch-name <new-branch-name>  # Rename a different branch
+git push -u origin new-branch-name        # Push the renamed branch to the remote
+
+# ****Renaming Branches:
+When you rename a branch in your local Git repository, that change only affects your local environment. If the branch has already been pushed to a remote repository (like GitHub, GitLab, etc.), the remote still has the old branch name. To synchronize the changes, you need to push the renamed branch to the remote repository
+
+# **** Best Practices
+1 - Pull Before Push: This helps to avoid conflicts and ensures that you are working with the latest code
+
+--set-upstream: This option is used to set the upstream (or tracking) branch for the local branch. This means local branch-name is link to remote branch-name now. You can use git push and git pull without specifying the remote and branch name again. It simplifies future interactions with the remote branch
+
+For a specific file
+git restore file_name.type
+
+To unstage all files at once:
+git reset
+
+
+# Example Workflow:
+bash:
+cd path/to/your/repository      # Navigate to Your Cloned Repository
+git status                      # Check the status of your repo
+git add .                       # Stage all changes or also 'git add "path/file.type'
+git rest <file_name>            # If you stage a file and want to unstage it
+git commit -m "Your message"    # Commit your changes
+git pull origin branch-name     # Pull latest changes from remote
+git push origin branch-name     # Push your changes to remote (Resolve any conflicts if necessary)
+
+Remote Workflow
+
+    Create a Pull Request (PR):
+        Go to your repository on GitHub.
+        Click on the Pull Requests tab.
+        Click the New Pull Request button.
+        Select the base branch (the branch you want to merge into, e.g., main) and the compare branch (the branch with your changes, e.g., experimental-branch).
+        Review the changes and click Create Pull Request.
+
+    Merge the Pull Request:
+        After the PR is approved, you can merge it.
+        Click the Merge pull request button.
+        Choose a merge method:
+            Create a merge commit: Combines the branches and creates a new merge commit. This is the default option.
+            Squash and merge: Combines all commits into a single commit and merges it into the base branch.
+            Rebase and merge: Reapplies the commits from the compare branch onto the base branch.
+        Click Confirm merge.
+
+
+# Merging Locally
+git checkout main # Switch to the main branch
+git merge feature-branch # Merging the Branch
+git pull origin main # Always pull the latest changes from the remote repository
+git push origin main # Push the changes to GitHub
+
+# Resolving the conflict
+git log --oneline # Verify the Merge
+git add <file> # This is the conflicted file
+git commit -m "Some content goes here"
+git commit -m "Resolved merge conflicts" # Complete the Merge
+git pull origin main # Always pull the latest changes from the remote repository
+git push origin main # Push the changes to GitHub
+
+
+Resolving Conflicts (merge)
+If you encounter merge conflicts during a merge, you will need to resolve them before you can push your changes:
+git status # Check for conflicted files
+git add <file> # Stage the resolved file
+git commit -m "Resolved merge conflicts" # Complete the Merge
+git push origin main # Push the changes to GitHub
+
+
+
+Git Configuration Settings
+git config --list # List all configuration settings
+git config --global user.name "Your Name" # Set your global username
+git config --global user.email "your.email@example.com" # Set your global email
+
+# Check your global Git email:
+git config --global user.email
+
+# Check the local Git username:
+git config user.name
+
+# Check the local Git email::
+git config user.email
+
+# Set your global username:
+git config --global user.name "Your Name"
+
+# Set your global email:
+git config --global user.email "your.email@example.com"
+git push -u origin main
+
+# Verify Your Git Configuration for global settings
+git config --global --list
+
+# Verify Your Git Configuration for locally settings
+git config --list

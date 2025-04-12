@@ -1,0 +1,194 @@
+GitLab is a web-based DevOps lifecycle tool that provides a Git repository manager with features for source code management (SCM), continuous integration (CI), and project management.
+
+What is a Branch?
+A branch in GitLab is essentially a pointer to a specific commit in your repository. It allows you to diverge from the main line of development (usually the main or master branch) and work on new features, bug fixes, or experiments without affecting the main codebase.
+Why Use Branches?
+
+    Isolation: Changes made in a branch do not affect other branches until you merge them.
+    Collaboration: Multiple developers can work on different branches simultaneously without interfering with each other’s work.
+    Experimentation: You can try out new ideas in a branch and discard them if they don’t work out.
+
+Branching Strategy:
+Common strategies include:
+    Feature Branching: Create a new branch for each new feature.
+    Release Branching: Create branches for preparing releases.
+    Hotfix Branching: Create branches for urgent fixes.
+
+GitLab Tutorial Resources:
+    GitLab Documentation: GitLab Docs
+    GitLab CI/CD: GitLab CI/CD Documentation
+    GitLab Branching: GitLab Branching Documentation
+
+Local and Remote Branches
+Local Branches:
+    Local branches exist on your development machine.
+    Example: main and feature-branch are local branches.
+
+Remote Branches:
+    Remote branches correspond to branches on the remote repository (e.g., GitLab).
+    When you push your local branches to the remote repository, they become origin/main and origin/feature-branch, where origin is the default name for the remote repository.
+
+GitLab Branching Structure
+
+main (protected, production-ready)  
+│  
+├── staging (optional, for pre-production testing)  
+│  
+├── feature/* (experimental branches, e.g., `feature/login-page`)  
+│   │  
+│   └── Merge Request (MR) → main (after review & CI/CD passes)  
+│  
+└── hotfix/* (for urgent fixes, merges directly into main)  
+    │  
+    └── MR → main (bypasses staging if critical) 
+Key Differences from GitHub:
+
+    Protected Branches (main, staging)
+        GitLab enforces branch protection rules (e.g., only maintainers can merge).
+        Direct pushes to main are usually blocked.
+
+    Merge Requests (MRs) = GitHub’s Pull Requests (PRs)
+        GitLab uses "Merge Requests" instead of "Pull Requests."
+        MRs require approvals, CI/CD pipeline success, and sometimes issue linking.
+
+    Optional staging Branch
+        GitLab Flow often includes a staging branch for pre-production testing before merging to main.
+
+    Environment-Based Deployments
+        GitLab CI/CD can auto-deploy:
+            feature/* → Review App (temporary test environment)
+            staging → Staging Environment
+            main → Production
+
+Visual Workflow Example
+
+main --------------------------○-----------------○ (production releases)  
+ \                           /                 /  
+  \    staging ---------○---/ (pre-production)  
+   \                 /  
+    feature/login --○ (MR → staging → main)
+
+
+## Main Branch:
+- **Definition**: The main branch (often called `main` or `master`) is typically the default branch in a repository. It represents the stable, production-ready state of the code.
+- **Purpose**: This branch is where the final, tested, and approved code resides. It is the version of the project that is deployed or released to users.
+
+## Experimental Branch:
+- **Definition**: An experimental branch is created for testing new ideas, features, or changes that are not yet ready for production.
+- **Purpose**: This branch allows developers to explore new concepts, try out different implementations, or work on features that may not be fully defined. It is a space for innovation and experimentation without affecting the stable codebase.
+
+When to Use Which Branch?
+
+Branch	Purpose	Example Name
+main	Production-ready code (protected)	main
+staging	Pre-production testing (optional)	staging
+feature/*	New experiments, features, or fixes	feature/dark-mode
+hotfix/*	Critical production bug fixes	hotfix/login-error
+
+GitLab-Specific Features
+
+    Merge Request Pipelines: Runs CI/CD before allowing merges.
+    Approval Rules: Requires senior devs to approve MRs.
+    Issue Links: MRs can close GitLab issues automatically.
+
+## Install Git
+```bash
+sudo apt update
+sudo apt install git
+git --version
+
+If it’s not installed, you can download it from 'git-scm.com'
+
+Create a Repository Locally
+To create a new GitLab repository locally:
+mkdir my-repo # Create a New Directory
+cd my-repo
+gt init # Initialize the Repository
+
+Clone a Remote Repository to Your Local Machine
+cd path/to/your/directory # Navigate to the Desired Directory
+git clone https://gitlab.com/username/repository.git # Or SSH: git clone git@gitlab.com:username/repository.git
+
+Remove Files or Folders from the Repository
+git rm --cached path/to/your/file
+git rm -r --cached path/to/your/folder
+git commit -m "Remove files/folders from remote repository but keep them locally"
+git push origin branch-name
+
+jeg/wQ*Ae'f2S55o@;'g`Hp%.
+(Optional) Add to .gitignore
+cd path/to/your/file
+cd path/to/your/folder/
+echo "path/to/excluded/file" >> .gitignore
+git add .gitignore
+git commit -m "Update .gitignore to exclude certain files/folders"
+git push origin branch-name
+
+Work with GitLab Branches
+git status # Check for changes/Staging status/Untracked files/Branch information
+git branch # List all local branches
+git branch -r # To see all remote branches
+git branch -a # To view both local and remote branches
+git remote -v # List the remote repositories configured for your local clone
+
+Create a New Branch
+git branch <new-branch-name> # Create a New Branch
+git checkout <new-branch-name> # Switch to another Branch
+git checkout -b <new-branch-name> # Create and Switch in One Command
+
+Push a Branch to Remote
+git push -u origin <branch-name> # The -u flag sets the upstream tracking reference
+
+Delete Branches
+git push origin --delete <old-branch-name>  # Delete the old branch from the remote
+git branch -d <new-branch-name> # Delete a Branch (Deletes a local branch)
+git branch -D <new-branch-name> # Forcefully delete a branch regardless of its merge status
+
+Delete Branches
+git push origin --delete <old-branch-name>  # Delete the old branch from the remote
+git branch -d <new-branch-name> # Delete a Branch (Deletes a local branch)
+git branch -D <new-branch-name> # Forcefully delete a branch regardless of its merge status
+
+
+Example Workflow
+cd path/to/your/repository      # Navigate to Your Cloned Repository
+git status                      # Check the status of your repo
+git add .                       # Stage all changes
+git commit -m "Your message"    # Commit your changes
+git pull origin branch-name     # Pull latest changes from remote
+git push origin branch-name     # Push your changes to remote (Resolve any conflicts if necessary)
+
+Merge
+Remote Workflow
+    Create a Merge Request (MR) in GitLab:
+        Go to your repository on GitLab.
+        Click on the Merge Requests tab.
+        Click the New Merge Request button.
+        Select the source branch (the branch with your changes) and the target branch (the branch you want to merge into).
+        Review the changes and click Create Merge Request.
+
+    Merge the Merge Request:
+        After the MR is approved, you can merge it.
+        Click the Merge button.
+
+Merging Locally
+git checkout main # Switch to the main branch
+git merge feature-branch # Merging the Branch
+git pull origin main # Always pull the latest changes from the remote repository
+git push origin main # Push the changes to GitLab
+
+Resolving Conflicts
+If you encounter merge conflicts during a merge, you will need to resolve them before you can push your changes:
+git status # Check for conflicted files
+git add <file> # Stage the resolved file
+git commit -m "Resolved merge conflicts" # Complete the Merge
+git push origin main # Push the changes to GitLab
+
+Git Configuration Settings
+git config --list # List all configuration settings
+git config --global user.name "Your Name" # Set your global username
+git config --global user.email "your.email@example.com" # Set your global email
+
+Verify Your Git Configuration
+git config --global --list # Verify your global settings
+git config --list # Verify your local settings

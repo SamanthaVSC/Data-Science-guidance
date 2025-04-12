@@ -1,0 +1,137 @@
+Basic tmux Commands
+
+tmux uses a prefix key to trigger commands. By default, the prefix key is Ctrl + b. After pressing the prefix key, you can enter a command.
+Common Commands
+
+| Command | Description | |-----------------------------|--------------------------------------------------| | Ctrl + b then c | Create a new window. | | Ctrl + b then n | Switch to the next window. | | Ctrl + b then p | Switch to the previous window. | | Ctrl + b then 0-9 | Switch to a specific window by number. | | Ctrl + b then d | Detach from the current session. | | Ctrl + b then " | Split the current pane horizontally. | | Ctrl + b then % | Split the current pane vertically. | | Ctrl + b then arrow key | Move between panes. | | Ctrl + b then x | Close the current pane. | | Ctrl + b then & | Close the current window. | | Ctrl + b then ? | View all keybindings (help). |
+4. Detach and Reattach Sessions
+
+
+In tmux, panels (also known as panes) can be resized, moved, and rearranged using various keybindings. Below are some common commands to manage panels in tmux:
+1. Splitting Panes
+
+    Split vertically: Ctrl-b %
+    Split horizontally: Ctrl-b "
+
+2. Navigating Between Panes
+
+    Move to the next pane: Ctrl-b o
+    Move to a specific pane: Ctrl-b q followed by the pane number (e.g., 1, 2, etc.)
+    Move to the pane above: Ctrl-b Up Arrow
+    Move to the pane below: Ctrl-b Down Arrow
+    Move to the pane on the left: Ctrl-b Left Arrow
+    Move to the pane on the right: Ctrl-b Right Arrow
+
+3. Resizing Panes
+
+    Resize pane to the left: Ctrl-b Ctrl-Left Arrow
+    Resize pane to the right: Ctrl-b Ctrl-Right Arrow
+    Resize pane up: Ctrl-b Ctrl-Up Arrow
+    Resize pane down: Ctrl-b Ctrl-Down Arrow
+
+4. Swapping Panes
+
+    Swap with the previous pane: Ctrl-b {
+    Swap with the next pane: Ctrl-b }
+
+5. Closing Panes
+
+    Close the current pane: Ctrl-b x (then confirm with y)
+
+6. Changing Layouts
+
+    Cycle through layouts: Ctrl-b Space
+    Select a specific layout:
+        Even-horizontal: Ctrl-b M-1
+        Even-vertical: Ctrl-b M-2
+        Main-horizontal: Ctrl-b M-3
+        Main-vertical: Ctrl-b M-4
+        Tiled: Ctrl-b M-5
+
+7. Moving Panes to a New Window
+
+    Move the current pane to a new window: Ctrl-b !
+
+8. Breaking a Pane into a New Window
+
+    Break the current pane into a new window: Ctrl-b :break-pane
+
+9. Joining Panes
+
+    Join the current pane with another pane: Ctrl-b :join-pane -t <target-pane>
+
+10. Rotating Panes
+
+    Rotate panes clockwise: Ctrl-b Ctrl-o
+    Rotate panes counterclockwise: Ctrl-b M-o
+
+11. Customizing Keybindings
+
+    You can customize keybindings in your ~/.tmux.conf file. For example:
+
+    bash
+
+bind-key -n C-h select-pane -L
+
+bind-key -n C-j select-pane -D
+
+bind-key -n C-k select-pane -U
+
+    bind-key -n C-l select-pane -R
+
+    This would allow you to navigate panes using Ctrl-h, Ctrl-j, Ctrl-k, and Ctrl-l without needing to press Ctrl-b first.
+
+12. Switching Panes with Mouse
+
+    If mouse mode is enabled, you can click on a pane to switch to it. Enable mouse mode with:
+
+    bash
+
+    set -g mouse on
+
+13. Renumbering Panes
+
+    Renumber panes: Ctrl-b :move-pane -t <new-index>
+
+14. Maximizing and Restoring Panes
+
+    Maximize the current pane: Ctrl-b z
+    Restore the pane to its original size: Ctrl-b z again
+
+15. Swapping Panes with a Specific Pane
+
+    Swap the current pane with a specific pane: Ctrl-b :swap-pane -s <source-pane> -t <target-pane>
+
+These commands should help you manage and change panels in tmux effectively. You can always refer to the tmux manual (man tmux) for more advanced options and customization.
+
+
+Open or create the .tmux.conf file:
+
+bash
+
+nano ~/.tmux.conf
+
+Add the following lines to the file to set up the default behavior of tmux:
+
+bash
+
+# Set prefix key to Ctrl + a (optional)
+
+set-option -g prefix C-a
+
+unbind-key C-b
+
+
+# Start with 4 panes
+
+new-session -d -s mysession
+
+split-window -h
+
+split-window -v
+
+select-pane -t 0
+
+split-window -v
+
+attach-session -t mysession
