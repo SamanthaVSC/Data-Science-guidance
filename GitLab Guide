@@ -92,7 +92,6 @@ GitLab-Specific Features
     Issue Links: MRs can close GitLab issues automatically.
 
 ## Install Git
-```bash
 sudo apt update
 sudo apt install git
 git --version
@@ -103,7 +102,12 @@ Create a Repository Locally
 To create a new GitLab repository locally:
 mkdir my-repo # Create a New Directory
 cd my-repo
-gt init # Initialize the Repository
+git init # Initialize the Repository
+git add . # Add Your Files
+git commit -m "Initial commit" # Commit Your Changes
+git remote add origin <URL> # Add the Remote Repository
+git push origin name_branch # Push Your Changes to GitLab. Set the upstream branch('git push -u origin name_branch' or also 'git pull/push --set-upstream origin name_branch') to just type: git push
+# Go back to your GitLab repository in the browser and refresh the page to see your files
 
 Clone a Remote Repository to Your Local Machine
 cd path/to/your/directory # Navigate to the Desired Directory
@@ -113,9 +117,9 @@ Remove Files or Folders from the Repository
 git rm --cached path/to/your/file
 git rm -r --cached path/to/your/folder
 git commit -m "Remove files/folders from remote repository but keep them locally"
+git pull origin name_branch
 git push origin branch-name
 
-jeg/wQ*Ae'f2S55o@;'g`Hp%.
 (Optional) Add to .gitignore
 cd path/to/your/file
 cd path/to/your/folder/
@@ -192,3 +196,6 @@ git config --global user.email "your.email@example.com" # Set your global email
 Verify Your Git Configuration
 git config --global --list # Verify your global settings
 git config --list # Verify your local settings
+
+Generate SSH Keys
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
