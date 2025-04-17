@@ -104,8 +104,10 @@ gparted							    sudo apt install gparted
 
 # Basic operations
 bash:
-sudo rm r- /local_directory/				    Remove a local file
-sudo rmdir /local_directory/				    Remove empty directories
+sudo rm r- /local_directory/				    Remove a local file or directory
+sudo rm -rf 											delete folderwithout prompting confirmation
+sudo rm -ri 											Wait for prompting confirmation
+sudo rmdir /local_dixrectory/				    Remove empty directories
 sudo rmdir [options] /local_directory/			    Remove empty directories
 mv							    To move
 cp							    To copy files
@@ -137,6 +139,8 @@ ls -l							    Get more detailed information
 ls -l /directory/file.type			Check the owner and the permissions of the file
 ls -r 								To list the contents of a directory in reverse order
 ls -l 								Long listing format. Shows detailed information including permissions, number of links, owner, group, size, and modification date.
+ls -lh filename 					The -l option provides a detailed listing, and the -h option makes the file size human-readable (e.g., KB, MB).
+ls -lh foldername 					This will list all files and subdirectories within the folder along with their sizes.
 ls -R 								Recursively lists subdirectories and their contents
 ls -t 								Sorts files by modification time, newest first.
 ls -S								Sorts files by size, largest first.
@@ -243,3 +247,9 @@ unset TMOUT # # Or otherwise
 echo 'export TMOUT=0' >> ~/.bashrc # Make the Change Permanent
 source ~/.bashrc # Reload the configuration file
 sudo nano /etc/profile # Check System-Wide Settings (Some systems may have timeout settings in '/etc/profile' or '/etc/bash.bashrc')
+
+Other
+du -h filename 									This command shows the disk usage of the file. The -h option makes the output human-readable.
+stat filename 									This command provides detailed information about the file, including its size in bytes.
+du -sh foldername 								The -s option summarizes the total size of the folder, and the -h option makes the output human-readable.
+tree -h foldername 								This command provides a visual representation of the directory structure along with the sizes of files and folders. You may need to install the tree package if it's not already available.
