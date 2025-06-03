@@ -7,7 +7,7 @@ sudo apt update						    Update package lists
 sudo apt clean						    Clear the local repository of retrieved package files
 sudo apt upgrade					    Upgrade all installed packages to their latest versions
 sudo apt install <package_name>			            Install a deb package
-sudo apt install --no-install-recommends <package_name>     Install the Nvidia driver without any recommended packages
+sudo apt install --no-install-recommends <package_name>     Install a package without any recommended packages
 sudo apt install ./<package_name>			    Install a .deb package
 sudo apt install /Url-directory/			    Install a specific package from a 'url'.This command will only work if the directory is empty.
 sudo apt install <missing_dependecies>			    Installing Missing Dependencies
@@ -135,11 +135,10 @@ nautilus .									Open the Current Directory
 ls /directory/file.type		                            Check if a file exits
 ls /directory/  			                    Check if a directory exits
 ls							    	List the files and folders
-ls -l							    Get more detailed information
 ls -l /directory/file.type			Check the owner and the permissions of the file
 ls -r 								To list the contents of a directory in reverse order
 ls -l 								Long listing format. Shows detailed information including permissions, number of links, owner, group, size, and modification date.
-ls -lh filename 					The -l option provides a detailed listing, and the -h option makes the file size human-readable (e.g., KB, MB).
+ls -lh filename.type 					The -l option provides a detailed listing, and the -h option makes the file size human-readable (e.g., KB, MB).
 ls -lh foldername 					This will list all files and subdirectories within the folder along with their sizes.
 ls -R 								Recursively lists subdirectories and their contents
 ls -t 								Sorts files by modification time, newest first.
@@ -150,6 +149,8 @@ ls -1 								Lists one file per line
 ls -a							    Show hidden files
 ls -la							    This will give you a comprehensive view of all files and directories, including hidden ones, along with their details.
 ls -ld .							Check Directory Permissions
+tree 								Visual representation (sudo apt install tree)
+mc/ranger/nnn						To navigate through directories with a visual representation in Bash (sudo apt install mc/ranger/nnn)
 
 # Getting issue to open Folders:
 bash:
@@ -162,7 +163,7 @@ sudo apt upgrade
 # Interact with 'AppImage'
 bash:
 chmod +x <package_name>					    For appimage (file executable, allowing you to run it as a program)
-./<package_name>					    Indicates that the file is located in the current directory	 
+chmod +x <package_name>					    Indicates that the file is located in the current directory	 
 apt-cache show <package_name>				    Check the dependencies of a package that is available in the repositories
 ldd ./<package_name>					    Get dependecies for AppImage or a binary when it's having an executable
 update-desktop-database ~/.local/share/applications
@@ -184,9 +185,9 @@ sudo kill <######>					    Terminate the Process (if necessary)
 sudo kill -9 <######>					    If the process does not terminate, you can use the -9 option to forcefully kill it
 sudo kill <proccess_number>				    Kill a proccess
 
-# Several ways to create files
+# Several ways to create files or read them
 bash:
-echo "Some content goes here" > file.type
+echo "Some content goes here" > file_name.type
 touch file1.type newfile2.type file3.type
 nano newfile.type
 vim newfile.type
@@ -216,7 +217,9 @@ find ~ -name <filename.type>			 	    Find a file
 alias
 unalias
 fzf									searcher for terminal
-ripgrep								searcher for terminal
+sudo apt install ripgrep
+ripgrep	rg "search_term" /path/to/directory		Search in a Specific Directory:
+rg -n "search_term"			To search(Show Line Numbers)
 tldr								to learn to use terminal commands
 sudo chown username:username /directory/file.type		 Change File Ownership
 chmod 644 /directory/file.type		Change File Permissions

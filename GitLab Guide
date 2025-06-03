@@ -157,10 +157,18 @@ git branch -D <new-branch-name> # Forcefully delete a branch regardless of its m
 Example Workflow
 cd path/to/your/repository      # Navigate to Your Cloned Repository
 git status                      # Check the status of your repo
-git add .                       # Stage all changes
+git add .                       # Stage all changes or also 'git add "path/file.type'
+git rest <file_name>            # If you stage a file and want to unstage it
 git commit -m "Your message"    # Commit your changes
+git reset --hard <commit_hash>  # Uncommit Changes
+git reset --hard HEAD~1         # git reset --hard HEAD~1
+git reset --hard HEAD           # Reset to the Last Commit
+git reset --hard abc1234        # This will discard all changes made after that commit
+git checkout -- <file>          # To discard changes in a specific, it returns to the last committed state
+git restore <file>              # In newer versions of Git(2.23) , it returns to the last committed state
 git pull origin branch-name     # Pull latest changes from remote
 git push origin branch-name     # Push your changes to remote (Resolve any conflicts if necessary)
+git push origin <branch-name> --force # If you have already pushed commits to a remote repository and then use git reset --hard, you will need to force push the changes to the remote repository
 
 Merge
 Remote Workflow

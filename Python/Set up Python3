@@ -10,7 +10,7 @@ sudo apt install python3.x-distutils
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.x <number_version>  Set as default a python version
 update-alternatives --display python3                       Check Python Alternatives
 sudo update-alternatives --config python3                   Configure the Default Version
-python3 -c "import package-name";print('package-name'.__version__)"     Check any package version from a compiler
+python3 -c "import <package_name>";print('<package_name>'.__version__)"     Check any package version from a compiler
 sudo apt upgrade python3                            Upgrate python to the last version
 
 
@@ -27,7 +27,9 @@ pip3 --version                                              Check pip3 version
 pip -V                                                      Check pip3 version
 alias pip=pip3                                              Create an alias
 pip3 install <package_name>                     Install a module
-pip3 unistall <package_name>                        Unistall a module
+pip install jupyterlab==<Version>
+pip install --upgrade <package_name>
+pip3 uninstall <package_name>                        Unistall a module
 pip3 list                               Check current installed package 
 pip install jupyterlab <package_name>                              Install any package on JupyterLab
 pip show <package_name>                                                Check any package version  
@@ -49,8 +51,11 @@ cat installed_extensions.txt                           Verify the Output
 # Core Libraries for Data Manipulation and Visualization
 pip install --timeout 0 numpy pandas matplotlib seaborn
 
-# Machine Learning Libraries
+# Machine Learning Libraries (I need to install 'xgboost' before to go ahead)
 pip install --timeout 0 scikit-learn xgboost
+
+# Additional Utilities
+pip install --timeout 0 scipy statsmodels
 
 # Deep Learning Libraries
 pip install --timeout 0 tensorflow keras pytorch
@@ -63,9 +68,6 @@ pip install --timeout 0 opencv-python
 
 # Web Frameworks for Deployment
 pip install --timeout 0 flask fastapi
-
-# Additional Utilities
-pip install --timeout 0 scipy statsmodels
 
 # other modules
 pip install --timeout 0 django plotly selenium beautifulsoup4 pygame requests sqlalchemy pytest docker fabric

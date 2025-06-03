@@ -169,7 +169,9 @@ echo "# My Repository" > README.md # Create a README file
 git add README.md # Add the README file to the staging area
 git commit -m "Initial commit on new-branch-name" # Commit the changes
 git remote add origin https://github.com/username/my-repo.git # Add to a Remote Repository
-git push -u origin new-branch-name # Push Your Branch to the Remote Repository
+git push -u origin new-branch-name # Push
+git remote -v  # Verify the Remote
+Your Branch to the Remote Repository
 
 # Summary
 #    Create a directory and navigate into it.
@@ -220,6 +222,7 @@ git push origin <branch-name> # Push the Renamed Branch to GitHub
 git push -u origin <new-branch-name> #Push the Renamed Branch to the Remote: After renaming the branch
 git push origin --delete <old-branch-name> # Delete the Old Branch from the Remote
 git push -u origin <branch-name> # Set Upstream for the New Branch
+git branch -a # Verify the Push
 git log # View Commit History
 git log --oneline # View a Simplified Commit History
 
@@ -252,8 +255,34 @@ git status                      # Check the status of your repo
 git add .                       # Stage all changes or also 'git add "path/file.type'
 git rest <file_name>            # If you stage a file and want to unstage it
 git commit -m "Your message"    # Commit your changes
+git reset HEAD~1                # Uncommit Changes
+git reset HEAD                  # Unstage All Changes
+git reset HEAD <file>           # Unstage a single file
 git pull origin branch-name     # Pull latest changes from remote
 git push origin branch-name     # Push your changes to remote (Resolve any conflicts if necessary)
+
+#  Example of reverting a commit: `git revert` is a command used in Git to create a new commit that undoes the changes made by a previous commit. This is particularly useful when you want to reverse the effects of a commit that has already been pushed to a shared repository, as it preserves the commit history.
+
+Identify the Commit to Revert:
+bash:
+    git log
+
+output:
+    commit abc1234 (HEAD -> main)
+    Author: Your Name <you@example.com>
+    Date:   Mon Oct 1 12:34:56 2023 -0700
+
+Revert the Commit
+bash:
+    git revert abc1234
+    git push origin <branch-name>
+
+Resolve Conflicts (if any)
+bash:
+    git add <file>
+    git revert --continue
+    git push origin <branch-name>
+
 
 Remote Workflow
 
