@@ -1,0 +1,8 @@
+subl /etc/apt/sources.list
+add:
+deb http://deb.debian.org/debian/ bookworm main contrib non-free
+deb-src http://deb.debian.org/debian/ bookworm main contrib non-free
+
+echo 'APT::Get::Update::SourceListWarnings::NonFreeFirmware "false";' | sudo tee /etc/apt/apt.conf.d/no-bookworm-firmware.conf
+
+/etc/apt/sources.list.d/

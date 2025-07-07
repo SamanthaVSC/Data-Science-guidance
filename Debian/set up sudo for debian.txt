@@ -1,0 +1,63 @@
+Method 1: Using the Root Account
+
+    Switch to the Root User: If you have access to the root account, you can switch to it by running:
+
+    bash
+
+su -
+
+Enter the root password when prompted.
+
+Add User to the Sudo Group: Once you are logged in as root, you can add the user samantha to the sudo group with the following command:
+
+bash
+
+usermod -aG sudo samantha
+
+Exit the Root Session: After adding the user to the group, you can exit the root session:
+
+bash
+
+    exit
+
+    Log Out and Log Back In: For the changes to take effect, log out of your current session and log back in.
+
+Method 2: Editing the Sudoers File
+
+If you don't have access to the root account, you will need to contact your system administrator to grant you sudo privileges. If you do have access to the root account, you can edit the sudoers file using the visudo command, which safely edits the file:
+
+    Switch to the Root User: As mentioned above, switch to the root user.
+
+    Edit the Sudoers File: Run the following command:
+
+    bash
+
+visudo
+
+Add the User: Find the line that looks like this:
+
+plaintext
+
+root    ALL=(ALL:ALL) ALL
+
+Below it, add the following line to grant samantha sudo privileges:
+
+plaintext
+
+    samantha ALL=(ALL:ALL) ALL
+
+    Save and Exit: Save the changes and exit the editor. In visudo, you typically save by pressing CTRL + O, then Enter, and exit with CTRL + X.
+
+    Log Out and Log Back In: Again, log out and log back in for the changes to take effect.
+
+Testing Sudo Access
+
+After following one of the methods above, you can test if samantha has sudo access by running:
+
+bash
+
+sudo whoami
+
+If everything is set up correctly, it should return root.
+
+If you have any further questions or need additional assistance, feel free to ask!

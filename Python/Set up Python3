@@ -81,7 +81,7 @@ python3.x -m venv /environment_direction/                  Create the Virtual En
 source /environment_direction/bin/activate                 Activate the Virtual Environment(source /home/samantha/Documents/Programming/Python/myenv/bin/activate)                         
 which python
 python -c "import sys; print(sys.executable)"
-conda deactivate                               Deactivate the virtual environment when done
+conda deactivate <env_name>                              Deactivate the virtual environment when it's done
 
 !!!!To install pytouch on ubuntu
 1-Go to the website 'cuda tookit' and install the appropriate cuda version for you NVIDIA GRAFIC CARD
