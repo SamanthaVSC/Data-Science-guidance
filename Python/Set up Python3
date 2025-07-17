@@ -58,7 +58,9 @@ pip install --timeout 0 scikit-learn xgboost
 pip install --timeout 0 scipy statsmodels
 
 # Deep Learning Libraries
-pip install --timeout 0 tensorflow keras pytorch
+pip install --timeout 0 tensorflow keras
+
+pip install--timeout 0 torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 
 # Natural Language Processing (NLP) Libraries
 pip install --timeout 0 nltk spacy
