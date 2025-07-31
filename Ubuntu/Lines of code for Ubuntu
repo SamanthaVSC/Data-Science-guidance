@@ -71,6 +71,11 @@ sudo apt-get remove command-not-found			    Remove the command-not-found package
 sudo apt-get purge <package-name>			    Purge a package (removes the package along with its configuration files)
 sudo apt-get autoremove					    Remove unnecessary packages that were automatically installed to satisfy dependencies for other packages and are no longer needed
 
+# Install Snap
+sudo apt install snapd
+sudo systemctl start snapd
+sudo systemctl enable snapd
+
 # Interact with 'dpkg':
 bash:
 dpkg -l							    List all the packages that are currently installed on your system
@@ -152,14 +157,6 @@ ls -ld .							Check Directory Permissions
 tree 								Visual representation (sudo apt install tree)
 mc/ranger/nnn						To navigate through directories with a visual representation in Bash (sudo apt install mc/ranger/nnn)
 
-# Getting issue to open Folders:
-bash:
-sudo apt-get purge nautilus
-sudo apt-get install nautilus
-sudo apt installl nautilus                              
-sudo apt update
-sudo apt upgrade
-
 # Interact with 'AppImage'
 bash:
 chmod +x <package_name>					    For appimage (file executable, allowing you to run it as a program)
@@ -173,6 +170,19 @@ bash:
 hostname -I						    Get IP
 /sbin/ifconfig						    This command provides detailed information about all network interfaces
 dig +short myip.opendns.com @resolver1.opendns.com	    This command queries a DNS service to find your public IP
+
+# Getting issue to open Folders:
+bash:
+sudo apt-get purge nautilus
+sudo apt-get install nautilus
+sudo apt install nautilus                              
+sudo apt update
+sudo apt upgrade
+
+# Configure Linux Interface Environment from bash
+systemctl status gdm3
+sudo systemctl enable gdm3
+sudo systemctl start gdm3
 
 # Interact with 'proccess'
 gnome-system-monitor					    Open System Monitor
@@ -223,33 +233,6 @@ rg -n "search_term"			To search(Show Line Numbers)
 tldr								to learn to use terminal commands
 sudo chown username:username /directory/file.type		 Change File Ownership
 chmod 644 /directory/file.type		Change File Permissions
-
-# Avoid timeout on Ubuntu terminal
-bash:
-sudo apt -o Acquire::http::Timeout=3600 install <package_name>
-sudo nano /etc/apt/apt.conf.d/99timeout
-Acquire::http::Timeout "3600" # Set HTTP timeout to 3600 seconds
-
-curl -m 30 http://example.com
-curl --connect-timeout 10 http://example.com
-curl --buffer-size 1000000 http://example.com
-curl -H "Connection: keep-alive" http://example.com
-
-# Or also:
-bash:
-sudo nano /etc/apt/apt.conf.d/99timeouts
-Acquire::http::Timeout "240";  # Set HTTP timeout to 240 seconds
-Acquire::https::Timeout "240"; # Set HTTPS timeout to 240 seconds
-Acquire::Retries "3";
-apt-config dump | grep Timeout
-
-To avoid timeouts in a Linux Mint Bash session
-echo $TMOUT # Check Current TMOUT Value
-export TMOUT=0 # Disable TMOUT
-unset TMOUT # # Or otherwise
-echo 'export TMOUT=0' >> ~/.bashrc # Make the Change Permanent
-source ~/.bashrc # Reload the configuration file
-sudo nano /etc/profile # Check System-Wide Settings (Some systems may have timeout settings in '/etc/profile' or '/etc/bash.bashrc')
 
 Other
 du -h filename 									This command shows the disk usage of the file. The -h option makes the output human-readable.
