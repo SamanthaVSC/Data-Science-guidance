@@ -48,6 +48,9 @@ code --list-extensions                             List the installed extensions
 code --list-extensions > installed_extensions.txt              Save the Output to a Text File
 cat installed_extensions.txt                           Verify the Output
 
+# Open-source web-based interactive development environments (IDE) 
+pip install --timeout 0 jupyterlab notebook voila kaggle
+
 # Core Libraries for Data Manipulation and Visualization
 pip install --timeout 0 numpy pandas matplotlib seaborn
 
@@ -57,8 +60,10 @@ pip install --timeout 0 scikit-learn xgboost
 # Additional Utilities
 pip install --timeout 0 scipy statsmodels
 
-# Deep Learning Libraries
-pip install --timeout 0 tensorflow keras pytorch
+# Deep Learning Frameworks
+pip install --timeout 0 tensorflow keras
+https://pytorch.org/get-started/locally/
+
 
 # Natural Language Processing (NLP) Libraries
 pip install --timeout 0 nltk spacy
@@ -66,11 +71,14 @@ pip install --timeout 0 nltk spacy
 # Computer Vision Libraries
 pip install --timeout 0 opencv-python
 
+# NVIDIA cuDNN is a GPU-accelerated library designed for deep neural networks
+pip install --timeout 0 nvidia-cudnn nvidia-cudnn-frontend
+
 # Web Frameworks for Deployment
 pip install --timeout 0 flask fastapi
 
 # other modules
-pip install --timeout 0 django plotly selenium beautifulsoup4 pygame requests sqlalchemy pytest docker fabric
+pip install --timeout 0 django plotly selenium beautifulsoup4 pygame requests sqlalchemy pytest docker fabric spyder
 
 To active a python environment by terminal
 sudo apt install python3.x python3.x-venv python3.x-dev            python3.x -venv: This package is necessary for creating virtual environments.
@@ -162,6 +170,8 @@ conda remove <package_name>
 pip install <package_name>              Make sure you are in the correct environment before using pip
 conda deactivate
 conda config --set auto_activate_base false         deactivate default conda environment
+conda config --set auto_activate false              deactivate any active environment
+subl ~/.config/fish/config.fish
 
 Keep a specific environment activate for conda:
 conda config --show                 Show configurations

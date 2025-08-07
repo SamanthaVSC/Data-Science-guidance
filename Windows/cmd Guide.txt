@@ -1,0 +1,72 @@
+# Navigation through directories
+dir                                 # See all items in the current directory
+dir '/path/to/your/file.type'         # List a specific file
+dir '/path/to/your/folder'            # List a specific folder
+cd /path/to/directory_Name          # Enter a specific directory
+cd ..                                # Return to the parent directory
+
+
+# Tasks:
+cp from_path/to/directory /path/to/destination  # Copy a directory to a new location
+mv from_path/to/directory /path/to/destination  # Move a directory to a new location
+cp from_path/to/file.type /path/to/destination   # Copy a specific file to a new location
+mv from_path/to/file.type /path/to/destination   # Move a specific file to a new location
+mkdir /path/to/directory_name          # Create a new directory
+rmdir /path/to/directory_name           # Remove an empty directory
+rd /s /path/to/directory_name           # Remove all directories, files, and the directory itself
+rm -r /path/to/directory                # Remove a directory and its contents
+del /path/to/file.type                  # Delete a specific file
+del /path/to/*.type                     # Remove all files in a directory of a specific pattern
+del file_1.type file_2.type             # Remove multiple files
+taskmgr					# Open task manager
+
+# Advanced features:
+dir /s					# Get the size of all files and folders
+dir /a                                  # See all items including hidden ones
+attrib -h "file_name.type"              # Remove hidden attribute from a file
+attrib -h "."                            # Remove hidden attribute from the current directory
+attrib +h "file_name.type"              # Add hidden attribute to a file
+attrib -h "folder_name"                  # Remove hidden attribute from a folder
+attrib +h "folder_name"                  # Add hidden attribute to a folder
+xcopy from/path to/path /s /e /h /i     # Simple Backup
+robocopy from/path to/path /e /h /r:3 /w:5 # Robust File Copy
+robocopy from/path to/path /e /mt:#     # To copy multiple files simultaneously, replace '#' with a number (default is 8 threads, maximum is 128)
+
+# /s -> Copy directories and subdirectories except empty ones
+# /e -> Copy directories and subdirectories including empty ones
+# /h -> Copies hidden and system files as well
+# /i -> If the destination does not exist, it assumes that you want to create a directory
+
+# Disk operations:
+diskpart                               # Start the disk partitioning tool
+list volume			       # Display all volumes along their assigned letters
+Switching to a disired partition e.g. D: or C:
+list disk                              # List all disks
+chkdsk <letter>::		       # Basic ckeck without making any repairs
+chkdsk <letter>: /x		       Force dismount 
+chkdsk <letter>: /f		       # Fix errors
+chkdsk <letter>: /r		       # Check for bad sectors and recover readable information
+chkdsk <letter>: /v		       # Display Disk Status
+chkdsk <letter>: /scan		       # Check specific file system
+chkdsk <letter>: /l		       # Check and repair with logging
+chkdsk <letter>: /f /r		       # Combining options
+sfc /scannow			       # For corrupted or missing system files
+DISM /Online /Cleanup-image RestoreHealth # DISM to repair the Windows image
+select disk x                          # Select a specific disk (replace x with the disk number)
+list partition                         # List partitions on the selected disk
+select partition x                     # Select a specific partition (replace x with the partition number)
+format fs="partition_type" quick       # Format the selected partition quickly
+delete partition                       # Delete the selected partition
+create partition primary size=#        # Create a primary partition of specified size in MB
+create partition logical size=#        # Create a logical partition of specified size in MB
+assign letter=X                        # Assign a drive letter to the selected partition
+
+
+Reading Text Files (.txt)
+notepad	filename.txt			# Open notepad 
+more filename.txt			# View it page by page
+type filename.txt 			# Display the contents of a text file
+
+Reading Office Files (.docx, .xlsx)
+start winword filename.docx		   # For Word documents
+start excel filename.xlsx		   # For Excel spreadsheets:

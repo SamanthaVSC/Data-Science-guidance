@@ -44,7 +44,7 @@ sudo apt-get update					    Update package lists
 sudo apt-get clean				            Clear the local repository of retrieved package files
 sudo apt-get upgrate					    Upgrade all installed packages to their latest versions
 sudo apt-get install <package_name>			    Install a package
-sudo apt-get install --no-install-recommends <package_name> Install the Nvidia driver without any recommended packages
+sudo apt-get install --no-install-recommends <package_name> Install a package without any recommended packages
 sudo apt-get install ./<package_name>			    Install a .deb package
 sudo apt-get build-dep <package_name>			    Compiling software from source and when it's having a .deb package or a source package available
 sudo apt install /Url-directory/			    Install a specific package frm a url
@@ -163,6 +163,7 @@ chmod +x <package_name>					    For appimage (file executable, allowing you to r
 chmod +x <package_name>					    Indicates that the file is located in the current directory	 
 apt-cache show <package_name>				    Check the dependencies of a package that is available in the repositories
 ldd ./<package_name>					    Get dependecies for AppImage or a binary when it's having an executable
+./<AppImage> --appimage-extract
 update-desktop-database ~/.local/share/applications
 
 # Get network details
