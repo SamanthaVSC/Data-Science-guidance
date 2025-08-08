@@ -78,15 +78,14 @@ pip install --timeout 0 nvidia-cudnn nvidia-cudnn-frontend
 pip install --timeout 0 flask fastapi
 
 # other modules
-pip install --timeout 0 django plotly selenium beautifulsoup4 pygame requests sqlalchemy pytest docker fabric spyder
+pip install --timeout 0 django plotly selenium beautifulsoup4 pygame requests sqlalchemy pytest docker fabric spyder pyside6
 
 To active a python environment by terminal
 sudo apt install python3.x python3.x-venv python3.x-dev            python3.x -venv: This package is necessary for creating virtual environments.
 python3.x-dev: This package includes the header files and a static library for Python development
 sudo apt install python3-venv                          Install victual environment for Python   
-cd /address
 python3.x -m venv /environment_direction/                  Create the Virtual Environment
-source /environment_direction/bin/activate                 Activate the Virtual Environment(source /home/samantha/Documents/Programming/Python/myenv/bin/activate)                         
+source /environment_direction/bin/activate                 Activate the Virtual Environment                         
 which python
 python -c "import sys; print(sys.executable)"
 conda deactivate <env_name>                              Deactivate the virtual environment when it's done
