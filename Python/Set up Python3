@@ -13,7 +13,6 @@ sudo update-alternatives --config python3                   Configure the Defaul
 python3 -c "import <package_name>";print('<package_name>'.__version__)"     Check any package version from a compiler
 sudo apt upgrade python3                            Upgrate python to the last version
 
-
 Using pip3 and pipx:
 sudo apt install python3-pip                                    Install pip3
 sudo apt-get install python3 python3-pip                                Install both (Python and pip3)
@@ -52,7 +51,7 @@ cat installed_extensions.txt                           Verify the Output
 pip install --timeout 0 jupyterlab notebook voila kaggle
 
 # Core Libraries for Data Manipulation and Visualization
-pip install --timeout 0 numpy pandas matplotlib seaborn
+pip install --timeout 0 numpy pandas matplotlib seaborn odfdo plotly *odfkit *pyoo
 
 # Machine Learning Libraries (I need to install 'xgboost' before to go ahead)
 pip install --timeout 0 scikit-learn xgboost
@@ -71,14 +70,14 @@ pip install --timeout 0 nltk spacy
 # Computer Vision Libraries
 pip install --timeout 0 opencv-python
 
-# NVIDIA cuDNN is a GPU-accelerated library designed for deep neural networks
+# NVIDIA cuDNN is a GPU-accelerated library designed for deep neural networks (Use VPN for those)
 pip install --timeout 0 nvidia-cudnn nvidia-cudnn-frontend
 
 # Web Frameworks for Deployment
 pip install --timeout 0 flask fastapi
 
 # other modules
-pip install --timeout 0 django plotly selenium beautifulsoup4 pygame requests sqlalchemy pytest docker fabric spyder pyside6
+pip install --timeout 0 django selenium beautifulsoup4 pygame requests sqlalchemy pytest docker fabric spyder pyside6
 
 To active a python environment by terminal
 sudo apt install python3.x python3.x-venv python3.x-dev            python3.x -venv: This package is necessary for creating virtual environments.
@@ -182,3 +181,8 @@ conda info --envs
 subl ~/.zshrc                       Another way using .zshrc
 conda activate <env_name>               Add the following line at the end of the file
 source ~/.zshrc
+
+
+Clear terminal:
+import os
+os.system('cls' if os.name == 'nt' else 'clear')

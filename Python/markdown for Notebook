@@ -1,0 +1,121 @@
+In a Jupyter Notebook, you can create a blank line or leave white space in a Markdown cell by using a few different methods:
+
+    Using HTML <br> Tag: You can insert a line break using the HTML <br> tag. For example:
+
+    markdown
+
+This is some text.<br><br>
+
+This is text after two line breaks.
+
+Using Multiple Spaces: You can also create a blank line by simply adding multiple spaces, but this may not always render as expected. For example:
+
+markdown
+
+This is some text.     
+
+
+This is text after a blank line.
+
+Using a Horizontal Rule: If you want to visually separate sections, you can use a horizontal rule (a line) by typing three dashes or asterisks:
+
+markdown
+
+This is some text.
+
+---
+
+    This is text after a horizontal rule.
+
+    Using Empty Markdown Cells: If you want to create a significant amount of space, you can simply add an empty Markdown cell between other cells. This will create a visual gap in the notebook.
+
+Example:
+
+Here’s how you might use the <br> tag in a Markdown cell:
+
+markdown
+
+This is the first line.<br><br><br>
+
+This is the fourth line after three line breaks.
+
+
+
+In Jupyter Notebook Markdown cells, you can change the font style using a few different methods, but the options are somewhat limited compared to full HTML/CSS styling. Here are the common ways to change font styles:
+1. Bold Text:
+
+You can make text bold by wrapping it in double asterisks ** or double underscores __.
+
+markdown
+
+**This text is bold.**
+
+__This text is also bold.__
+
+2. Italic Text:
+
+You can italicize text by wrapping it in single asterisks * or single underscores _.
+
+markdown
+
+*This text is italicized.*
+
+_This text is also italicized._
+
+3. Strikethrough Text:
+
+You can create strikethrough text by wrapping it in double tildes ~~.
+
+markdown
+
+~~This text is strikethrough.~~
+
+4. Monospace (Code) Text:
+
+You can display text in a monospace font (like code) by wrapping it in backticks `.
+
+markdown
+
+`This text is in monospace.`
+
+5. Headings:
+
+You can create headings of different sizes by using the # symbol. The number of # symbols indicates the heading level (1 to 6).
+
+markdown
+
+# This is a Heading 1
+
+## This is a Heading 2
+
+### This is a Heading 3
+
+6. Using HTML for Custom Styles:
+
+If you want more control over the font style (like changing the font family, size, or color), you can use HTML tags within the Markdown cell. For example:
+
+markdown
+
+<span style="font-family: Arial; font-size: 20px; color: blue;">This text is in Arial, size 20, and blue.</span>
+
+Example:
+
+Here’s a complete example combining some of these styles:
+
+markdown
+
+# My Title
+
+
+**This is bold text.**
+
+
+*This is italic text.*
+
+
+`This is monospace text.`
+
+
+<span style="font-family: Arial; font-size: 20px; color: green;">This is custom styled text.</span>
+
+When you run the cell, it will display the text with the specified styles. Note that the use of HTML for styling may not be supported in all Markdown renderers, but it generally works in Jupyter Notebooks.

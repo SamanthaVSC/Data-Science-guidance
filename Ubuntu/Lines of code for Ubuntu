@@ -189,7 +189,7 @@ sudo systemctl start gdm3
 gnome-system-monitor					    Open System Monitor
 htop							    sudo apt install htop
 btop								sudo apt install btop
-ps aux | grep apt					    Identify the Process
+					    Identify the Process
 ps aux | grep <process_name>				    Use the 'ps' command to check for running processes
 pgrep <process_name>					    The 'pgrep' command is a simpler way to check if a process is running
 sudo kill <######>					    Terminate the Process (if necessary)
@@ -206,7 +206,7 @@ code newfile.type # Visual Studio Code.
 cat, less, more, head, head -n 5, tail, tail -n 5
 subl newfile.type
 
-# View the system logs from the previous boot in a Linux system that uses 'systemd'
+# View the system logs from the previous boot in a Linux system that uses 'system'
 bash:
 journalctl -b -1 					    Review system logs for any errors that occur during shutdown
 journalctl -b -1 -p err					    Look for errors
